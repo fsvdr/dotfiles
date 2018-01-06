@@ -1,0 +1,30 @@
+[alias]
+	# Commit
+	calm 	= !git add -A && git commit -m 			# Commit all with message
+
+	# Logging
+	graph 	= log --oneline --graph --decorate --all	# Git full graph
+	hist 	= log --graph --pretty=custom			# Custom graph
+	reveal 	= show --stat -p -w				# Reveal every single change in last commit
+
+	# Reset
+	undo 	= reset --soft HEAD~1 				# Undo last commit
+	rmi 	= rm --cached					# Remove file from index
+
+
+[core]
+	editor 	= atom --wait
+	excludesfile = ~/.gitignore.global
+
+
+[pretty]
+	# Format from [https://github.com/nicksp/dotfiles/blob/master/git/gitconfig]
+	custom 	= "%C(magenta)%h%C(red)%d %C(yellow)%ar %C(green)%s %C(yellow)(%an)"
+        #                     │        │            │            │             └─ author name
+        #                     │        │            │            └─ message
+        #                     │        │            └─ date (relative)
+        #                     │        └─ decorations (branch, heads or tags)
+	# 		      └─ hash (abbreviated)
+
+[include]
+	path 	= ~/.gitconfig.local
