@@ -1,11 +1,15 @@
 # OS generated files
 .DS_Store
 .Trashes
+*~
+*.swp
 
 # npm
 node_modules
+build
+dist
 
-# sass 
+# sass
 .sass-cache/
 *.css.map
 

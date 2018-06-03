@@ -14,7 +14,7 @@
 
 [core]
 	editor 	= atom --wait
-	excludesfile = ~/.gitignore.global
+	excludesfile = ~/.gitignore_global
 
 
 [pretty]
@@ -27,4 +27,4 @@
 	# 		      └─ hash (abbreviated)
 
 [include]
-	path 	= ~/.gitconfig.local
+	path 	= ~/.gitconfig_local
