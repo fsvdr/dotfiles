@@ -1,0 +1,23 @@
+#!/usr/bin/env bash
+
+BIN_NAME=$(basename "$0")
+COMMAND_NAME=$1
+
+display_help () {
+  echo "DOTFILES"
+  echo "Usage: $BIN_NAME <command>"
+  echo
+  echo "Commands:"
+  echo "    help          Display this message"
+  echo "    init          Initialization script (will run all the following)"
+  echo
+  echo "    git           Configure git dotfiles"
+  echo "    macos         Install macOS apps"
+}
+
+case "$COMMAND_NAME" in
+  "" | "help")    display_help;;
+  "init")         echo "init command issued";;
+  "git")          echo "git command issued";;
+  "macos")        echo "macos command issued";;     
+esac

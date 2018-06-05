@@ -28,6 +28,8 @@ source "$DOTFILES_ROOT/scripts/symlink.sh"
 # Import backup script
 source "$DOTFILES_ROOT/scripts/backup.sh"
 
+# Import macos script
+source "$DOTFILES_ROOT/scripts/macos.sh"
 
 echo ""
 echo "**********************************************************************"
@@ -41,12 +43,14 @@ echo ""
 echo "[1] Backup for pre-existing dotfiles"
 echo "[2] Git configuration setup"
 echo "[3] Dotfiles linking"
+echo "[4] macOS system configuration"
 echo ""
 
 backup_old_dotfiles
 configure_git
 symlink
+macos
 
 echo ""
 echo "Awesome! You're done, go grab a cup of coffee!"
-echo ""
+kill_apps
