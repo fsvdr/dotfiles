@@ -89,9 +89,6 @@ macos () {
   # Save screenshots in PNG format (other options: BMP, GIF, JPG, PDF, TIFF)
   defaults write com.apple.screencapture type -string "png"
 
-  # Automatically hide and show the Menu Bar
-  defaults write NSGlobalDomain _HIHideMenuBar -bool true
-
   ###############################################################################
   # Finder                                                                      #
   ###############################################################################
