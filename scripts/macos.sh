@@ -93,8 +93,8 @@ macos () {
   # Finder                                                                      #
   ###############################################################################
 
-  # Set Desktop as the default location for new Finder windows
-  defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Desktop/"
+  # Set 📷 Screenshots as the default location for new Finder windows
+  defaults write com.apple.finder NewWindowTargetPath -string "file://${HOME}/Desktop/${SCREENSHOTS_LOC}"
 
   # Show icons for hard drives, servers, and removable media on the desktop
   defaults write com.apple.finder ShowExternalHardDrivesOnDesktop -bool true
