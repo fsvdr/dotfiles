@@ -1,10 +1,11 @@
 #!/usr/bin/env bash
-##########################################
-# GIT.SH
-##########################################
-# Configure git locals/private information
+###############################################################################
+# GIT BOOTSTRAP SCRIPT                                                        #
+###############################################################################
+# This script takes care of configuring git credentials and then symlinking
+# git dotfiles
 
-configure_git () {
+bootstrap_git () {
   echo ""
 
   if [ -f git/gitconfig_local.symlink ]; then

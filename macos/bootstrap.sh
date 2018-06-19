@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 ###############################################################################
-# MACOS.SH                                                                    #
+# MACOS SYSTEM DEFAULTS SCRIPT                                                #
 ###############################################################################
-# Configures system preferences for macOS
+# This script applies macOS system defaults to my needs and likes
 # Heavily based on Mathias Bynen's dotfile
 # https://mths.be/macos
 
-macos () {
+bootstrap_macos () {
   echo ""
   display_info "Configuring macOS system preferences"
 
@@ -238,21 +238,4 @@ macos () {
   defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
   display_success "Done. Note that some of these changes require a logout/restart to take effect."
-}
-
-kill_apps() {
-  ###############################################################################
-  # Kill affected applications                                                  #
-  ###############################################################################
-
-  for app in "Activity Monitor" \
-  	"cfprefsd" \
-  	"Dock" \
-  	"Finder" \
-  	"Photos" \
-  	"Safari" \
-  	"SystemUIServer" \
-  	"Terminal"; do
-  	killall "${app}" &> /dev/null
-  done
 }

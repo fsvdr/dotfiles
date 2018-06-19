@@ -1,11 +1,12 @@
 #!/usr/bin/env bash
-##########################################
-# BACKUP.SH
-##########################################
-# Backup every pre-existing dotfile in
-# the user's HOME
+###############################################################################
+# BACKUP BOOTSTRAP SCRIPT                                                     #
+###############################################################################
+# This script takes care of performing a backup for pre-existing dotfiles
+# in the system
 
-backup_old_dotfiles () {
+do_backup () {
+  DOTFILES_ROOT_OLD="$HOME/.dotfiles_old"
   display_info "Creating a backup for pre-existing dotfiles..."
 
   # Create backup directory

@@ -1,0 +1,63 @@
+#!/usr/bin/env bash
+###############################################################################
+# DOTFILES SHELL PROGRAM                                                      #
+###############################################################################
+
+# Make sure to terminate if something goes wrong
+set -e
+
+DOTFILES_ROOT=$(pwd -P)
+
+BIN_NAME=$(basename "$0")
+COMMAND_NAME=$1
+
+# Let's buckle up ourselves with some utilities
+source "$DOTFILES_ROOT/scripts/helpers.sh"
+
+# Import symlink script
+source "$DOTFILES_ROOT/scripts/symlink.sh"
+
+# Import backup script
+source "$DOTFILES_ROOT/scripts/backup.sh"
+
+# Import git script
+source "$DOTFILES_ROOT/git/bootstrap.sh"
+
+# Import dev script
+source "$DOTFILES_ROOT/dev/bootstrap.sh"
+
+# Import macos script
+source "$DOTFILES_ROOT/macos/bootstrap.sh"
+
+
+display_help () {
+  echo ""
+  echo "Dotfiles - A manager"
+  echo "Usage: $BIN_NAME <command>"
+  echo ""
+  echo "Command:"
+  echo "  help      - Displays this message"
+  echo "  backup    - Backs up any previous dotfiles"
+  echo "  symlink   - Symlinks dotfiles (backup is done first)"
+  echo "  bootstrap - Takes care of setting up your environment as a new one"
+  echo "  git       - Takes care of git dotfiles configuration"
+  echo "  dev       - Installs dependencies for dev environment"
+  echo "  macos     - Apply macOS system defaults"
+  echo ""
+}
+
+display_command_error () {
+  display_error "Command $COMMAND_NAME was not found. For a list of available commands type"
+  echo "  dotfiles help"
+}
+
+case "$COMMAND_NAME" in
+  "" | "help")  display_help;;
+  "backup")     do_backup;;
+  "symlink")    do_symlink;;
+  "bootstrap")  display_info "This is where it gets difficult";;
+  "git")        do_backup && bootstrap_git && do_symlink;;
+  "dev")        bootstrap_dev;;
+  "macos")      bootstrap_macos;;
+  *)            display_command_error;;
+esac

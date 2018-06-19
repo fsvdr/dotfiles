@@ -31,6 +31,9 @@ source "$DOTFILES_ROOT/scripts/backup.sh"
 # Import macos script
 source "$DOTFILES_ROOT/scripts/macos.sh"
 
+# Import hombrew scripts
+source "$DOTFILES_ROOT/homebrew/install.sh"
+
 echo ""
 echo "**********************************************************************"
 echo "Dotfiles initialization script"
@@ -50,6 +53,7 @@ backup_old_dotfiles
 configure_git
 symlink
 macos
+install_apps
 
 echo ""
 echo "Awesome! You're done, go grab a cup of coffee!"

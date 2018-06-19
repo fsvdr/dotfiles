@@ -4,7 +4,7 @@
 ##########################################
 # Create symlinks for the dotfiles
 
-symlink () {
+do_symlink () {
   echo ""
   display_info "Linking dotfiles to home directory"
 
