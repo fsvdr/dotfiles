@@ -24,6 +24,17 @@ bootstrap_dev () {
   else
     display_error "Could not install nvm. Skipping..."
   fi
+
+  if type brew; then
+    display_info "Installing yarn"
+    if brew install yarn --without-node 2>/dev/null; then
+      display_success "Done"
+    else
+      display_error "Could not install yarn. Skipping..."
+    fi
+  else
+    display_error "Hombrew is required to install yarn. Skipping..."
+  fi
 }
 
 install_python () {
