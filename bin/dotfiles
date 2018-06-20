@@ -29,6 +29,9 @@ source "$DOTFILES_ROOT/dev/bootstrap.sh"
 # Import macos script
 source "$DOTFILES_ROOT/macos/bootstrap.sh"
 
+# Import apps installation script
+source "$DOTFILES_ROOT/macos/apps.sh"
+
 
 display_help () {
   echo ""
@@ -43,6 +46,7 @@ display_help () {
   echo "  git       - Takes care of git dotfiles configuration"
   echo "  dev       - Installs dependencies for dev environment"
   echo "  macos     - Apply macOS system defaults"
+  echo "  apps      - Install apps (App Store and via cask)"
   echo ""
 }
 
@@ -59,5 +63,6 @@ case "$COMMAND_NAME" in
   "git")        do_backup && bootstrap_git && do_symlink;;
   "dev")        bootstrap_dev;;
   "macos")      bootstrap_macos;;
+  "apps")       bootstrap_apps;;
   *)            display_command_error;;
 esac
