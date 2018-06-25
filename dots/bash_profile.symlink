@@ -1,0 +1,11 @@
+###############################################################################
+# BASH PROFILE                                                                #
+###############################################################################
+# This is it folks, this file is loaded first on every shell session
+
+[[ -f "$HOME/.git-completion.bash" ]] && source "$HOME/.git-completion.bash"
+[[ -f "$HOME/.git-prompt.sh" ]] && source "$HOME/.git-prompt.sh"
+
+[[ -f "$HOME/.aliases" ]] && source "$HOME/.aliases"
+[[ -f "$HOME/.functions" ]] && source "$HOME/.functions"
+[[ -f "$HOME/.env" ]] && source "$HOME/.env"
