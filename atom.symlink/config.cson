@@ -1,0 +1,53 @@
+"*":
+  "atom-package-deps":
+    ignored: [
+      "prettier-atom"
+    ]
+  core:
+    customFileTypes:
+      "source.ini": [
+        ".hgrc"
+        ".buckconfig"
+        ".flowconfig"
+      ]
+      "source.json": [
+        "BUCK.autodeps"
+      ]
+      "source.python": [
+        "BUCK"
+      ]
+    disabledPackages: [
+      "tree-view"
+      "image-view"
+    ]
+    telemetryConsent: "no"
+    themes: [
+      "one-dark-ui"
+      "atom-ide-dark-syntax"
+    ]
+  editor:
+    fontSize: 8
+    showIndentGuide: true
+    softWrap: true
+    softWrapAtPreferredLineLength: true
+  "exception-reporting":
+    userId: "2c0a0d94-3865-4645-a785-a69285e94497"
+  "file-icons":
+    coloured: false
+    onChanges: true
+  "language-babel":
+    autoIndentJSX: true
+    createTranspiledCode: true
+    transpileOnSave: true
+  "prettier-atom":
+    formatOnSaveOptions:
+      enabled: true
+    prettierOptions:
+      singleQuote: true
+    useEslint: true
+    useStylelint: true
+  "tool-bar":
+    iconSize: "12px"
+    position: "Left"
+  welcome:
+    showOnStartup: false

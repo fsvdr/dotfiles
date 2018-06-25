@@ -32,13 +32,15 @@ source "$DOTFILES_ROOT/macos/bootstrap.sh"
 # Import apps installation script
 source "$DOTFILES_ROOT/macos/apps.sh"
 
+# Import atom scripts
+source "$DOTFILES_ROOT/atom/bootstrap.sh"
 
 display_help () {
   echo ""
   echo "Dotfiles - A manager"
   echo "Usage: $BIN_NAME <command>"
   echo ""
-  echo "Command:"
+  echo "where <command> is one of:"
   echo "  help      - Displays this message"
   echo "  backup    - Backs up any previous dotfiles"
   echo "  symlink   - Symlinks dotfiles (backup is done first)"
@@ -47,6 +49,7 @@ display_help () {
   echo "  dev       - Installs dependencies for dev environment"
   echo "  macos     - Apply macOS system defaults"
   echo "  apps      - Install apps (App Store and via cask)"
+  echo "  atom      - Install atom packages"
   echo ""
 }
 
@@ -64,5 +67,7 @@ case "$COMMAND_NAME" in
   "dev")        bootstrap_dev;;
   "macos")      bootstrap_macos;;
   "apps")       bootstrap_apps;;
+  "atom")       do_symlink && bootstrap_atom;;
+  "atom-safeguard") safeguard_atom;;
   *)            display_command_error;;
 esac
