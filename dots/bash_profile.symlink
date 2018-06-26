@@ -9,3 +9,4 @@
 [[ -f "$HOME/.aliases" ]] && source "$HOME/.aliases"
 [[ -f "$HOME/.functions" ]] && source "$HOME/.functions"
 [[ -f "$HOME/.env" ]] && source "$HOME/.env"
+[[ -f "$HOME/.prompt" ]] && source "$HOME/.prompt"
