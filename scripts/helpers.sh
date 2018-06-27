@@ -20,3 +20,11 @@ display_success () {
 display_error () {
   printf "\r\033[2K[\033[0;31mFAIL\033[0m] $1\n"
 }
+
+# Require confirmation from the user
+#
+# @param  message [$1]
+request-confirmation () {
+  read -p "$1 [Y/n] " -n 1 -r
+  echo
+}
