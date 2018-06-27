@@ -7,48 +7,48 @@
 bootstrap_dev () {
   echo ""
 
-  display_info "Installing Homebrew"
+  info-status "Installing Homebrew"
   if /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" 2>/dev/null; then
-    display_success "Done"
+    success-status "Done"
     install_python
   else
-    display_error "Could not install Homebrew. Skipping..."
+    error-status "Could not install Homebrew. Skipping..."
   fi
 
   echo ""
 
-  display_info "Installing nvm"
+  info-status "Installing nvm"
   if curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash 2>/dev/null; then
-    display_success "Done"
+    success-status "Done"
     install_node
   else
-    display_error "Could not install nvm. Skipping..."
+    error-status "Could not install nvm. Skipping..."
   fi
 
   if type brew; then
-    display_info "Installing yarn"
+    info-status "Installing yarn"
     if brew install yarn --without-node 2>/dev/null; then
-      display_success "Done"
+      success-status "Done"
     else
-      display_error "Could not install yarn. Skipping..."
+      error-status "Could not install yarn. Skipping..."
     fi
   else
-    display_error "Hombrew is required to install yarn. Skipping..."
+    error-status "Hombrew is required to install yarn. Skipping..."
   fi
 }
 
 install_python () {
-  display_info "Installing pyenv"
+  info-status "Installing pyenv"
 
   if brew install pyenv; then
-    display_success "Done"
+    success-status "Done"
   else
-    display_error "Could not install pyenv. Skipping..."
+    error-status "Could not install pyenv. Skipping..."
   fi
 }
 
 install_node () {
-  display_info "Installing NodeJS"
+  info-status "Installing NodeJS"
 
   # Use nvm without reloading
   export NVM_DIR="$HOME/.nvm"
@@ -60,9 +60,9 @@ install_node () {
 
   # Install both, most current and long term support versions
   if nvm install node && nvm install --lts 2>/dev/null; then
-    display_success "Done"
+    success-status "Done"
   else
-    display_error "Could not install NodeJS. You can try to do it later by typing"
+    error-status "Could not install NodeJS. You can try to do it later by typing"
     echo "  nvm install node"
   fi
 

@@ -13,7 +13,7 @@ BACKUPEXCLUDES=(
 
 do_backup () {
   DOTFILES_ROOT_OLD="$HOME/.dotfiles_old"
-  display_info "Creating a backup for pre-existing dotfiles..."
+  info-status "Creating a backup for pre-existing dotfiles..."
 
   # Create backup directory
   mkdir -p "$DOTFILES_ROOT_OLD"
@@ -26,10 +26,10 @@ do_backup () {
     if [[ "${BACKUPEXCLUDES[@]}" != *"$name"* ]]; then
       overridable="$HOME/.$name"
       if cp -RL "$overridable" "$DOTFILES_ROOT_OLD/" 2>/dev/null; then
-        rm "$overridable" && display_info "Moved [$src] to ~/$DOTFILES_ROOT_OLD"
+        rm "$overridable" && info-status "Moved [$src] to ~/$DOTFILES_ROOT_OLD"
       fi
     fi
   done
 
-  display_success "Backup completed"
+  success-status "Backup completed"
 }

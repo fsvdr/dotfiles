@@ -8,7 +8,7 @@
 
 bootstrap_macos () {
   echo ""
-  display_info "Configuring macOS system preferences"
+  info-status "Configuring macOS system preferences"
 
   # Close any open System Preferences panes, to prevent them from overriding
   # settings we’re about to change
@@ -237,5 +237,5 @@ bootstrap_macos () {
   # Prevent Photos from opening automatically when devices are plugged in
   defaults -currentHost write com.apple.ImageCapture disableHotPlug -bool true
 
-  display_success "Done. Note that some of these changes require a logout/restart to take effect."
+  success-status "Done. Note that some of these changes require a logout/restart to take effect."
 }

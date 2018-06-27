@@ -8,11 +8,11 @@
 bootstrap_atom () {
   # Check for atom package manager
   if type apm >/dev/null 2>&1; then
-    display_info "Installing atom packages..."
+    info-status "Installing atom packages..."
     apm install --packages-file "$DOTFILES_ROOT/atom/packages.txt"
-    display_success "Done"
+    success-status "Done"
   else
-    display_error "apm is not installed. Skipping..."
+    error-status "apm is not installed. Skipping..."
   fi
 }
 
@@ -20,10 +20,10 @@ bootstrap_atom () {
 safeguard_atom () {
   if type apm >/dev/null 2>&1; then
     # Save all installed packages to ./packages.txt
-    display_info "Creating atom packages backup..."
+    info-status "Creating atom packages backup..."
     apm list --installed --bare >"$DOTFILES_ROOT/atom/packages.txt"
-    display_success "Done. Remember to push in order to persist changes"
+    success-status "Done. Remember to push in order to persist changes"
   else
-    display_error "apm is not installed. Skipping..."
+    error-status "apm is not installed. Skipping..."
   fi
 }

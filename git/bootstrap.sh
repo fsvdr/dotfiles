@@ -9,7 +9,7 @@ bootstrap_git () {
   echo ""
 
   if [ -f git/gitconfig_local.symlink ]; then
-    display_warning "Dotfile [gitconfig] is already configured."
+    warning-status "Dotfile [gitconfig] is already configured."
     read -p "   Do you want to override it? [y/n] " confirm
 
     if [ $confirm == "y" ]; then
@@ -19,13 +19,13 @@ bootstrap_git () {
     configure_locals
   fi
 
-  display_success "Git dotfiles are ready"
+  success-status "Git dotfiles are ready"
 }
 
 configure_locals () {
   PROCEED=0
 
-  display_info "Initializing Git Configuration..."
+  info-status "Initializing Git Configuration..."
   while [ $PROCEED -eq 0 ]; do
     echo ""
 

@@ -9,31 +9,31 @@ bootstrap_apps () {
 
   # Check for hombrew before installing
   if type brew >/dev/null 2>&1; then
-    display_info "Installing mac app store cli (mas)"
+    info-status "Installing mac app store cli (mas)"
 
     # Install apps from the mac app store
     if brew install mas 2>/dev/null; then
-      display_success "Done"
+      success-status "Done"
       do_install_mas
     else
-      display_error "Could not install mas. Skipping mac app store apps..."
+      error-status "Could not install mas. Skipping mac app store apps..."
     fi
 
-    display_info "Installing hombrew-cask"
+    info-status "Installing hombrew-cask"
 
     # Install apps using cask
     if brew tap homebrew/cask 2>/dev/null; then
       brew tap caskroom/cask
-      display_success "Done"
+      success-status "Done"
       do_install_cask
 
-      display_success "Apps successfully installed!"
+      success-status "Apps successfully installed!"
     else
-      display_error "Could not install cask. Skipping hombrew-cask apps..."
+      error-status "Could not install cask. Skipping hombrew-cask apps..."
     fi
 
   else
-    display_error "Hombrew is required to install the apps! Try:"
+    error-status "Hombrew is required to install the apps! Try:"
     echo "  dotfiles dev"
   fi
 }

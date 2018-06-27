@@ -54,7 +54,7 @@ display_help () {
 }
 
 display_command_error () {
-  display_error "Command $COMMAND_NAME was not found. For a list of available commands type"
+  error-status "Command $COMMAND_NAME was not found. For a list of available commands type"
   echo "  dotfiles help"
 }
 
@@ -105,13 +105,13 @@ bootstrap () {
   echo "* WARNING: This step requires some interaction                       *"
   echo "**********************************************************************"
 
-  display_warning "Before proceeding please open atom and install the shell scripts"
+  warning-status "Before proceeding please open atom and install the shell scripts"
 
   request-confirmation "Ready?"
   if [[ "$REPLY" =~ ^[Yy]$ ]] || [[ "$REPLY" = "" ]]; then
     bootstrap_atom
   else
-    display_info "Skipping editor configuration..."
+    info-status "Skipping editor configuration..."
   fi
 
   echo "**********************************************************************"
