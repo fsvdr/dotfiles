@@ -1,6 +1,6 @@
 [alias]
 	# Commit
-	calm 	= !git add -A && git commit -m 			# Commit all with message
+	calm 	= git add -A && git commit -m 			# Commit all with message
 
 	# Logging
 	graph 	= log --oneline --graph --decorate --all	# Git full graph

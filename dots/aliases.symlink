@@ -11,6 +11,12 @@ alias c="clear"
 alias lsa="ls -la"
 alias cpwd="pwd|tr -d '\n'|pbcopy"
 
+# Git
+alias g="git"
+alias gs="git status"
+alias ga="git add"
+alias gcm="git commit -m"
+
 # Recursively remove .DS_Store files
 alias cleanup-ds="find . -type f -name '*.DS_Store' -ls -delete"
 
