@@ -41,10 +41,10 @@ UWHITE="\[\e[4;37m\]"
 
 export GIT_PS1_SHOWDIRTYSTATE=true
 
-PS1="${BBLACK} 🔥 ${USER}${COLORRESET}" # User
+PS1="${BBLACK} 🔥  ${USER}${COLORRESET}" # User
 PS1="${PS1} ${BWHITE}[${UWHITE}${DIRECTORY}${COLORRESET}${BWHITE}]${COLORRESET}"  # Working directory
 PS1="${PS1}${BRED}${GITBRANCH}${COLORRESET}"  # Git branch
-PS1="${PS1}  👉 "  # Emoji :)
+PS1="${PS1}  👉  "  # Emoji :)
 export PS1
 
-export PS2=" 💬 "
+export PS2=" 💬  "

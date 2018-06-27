@@ -1,12 +1,13 @@
 ###############################################################################
 # BASH PROFILE                                                                #
 ###############################################################################
-# This is it folks, this file is loaded first on every shell session
+# This is it folks, welcome to dotland
 
 [[ -f "$HOME/.git-completion.bash" ]] && source "$HOME/.git-completion.bash"
 [[ -f "$HOME/.git-prompt.sh" ]] && source "$HOME/.git-prompt.sh"
 
+[[ -f "$HOME/.env" ]] && source "$HOME/.env"
 [[ -f "$HOME/.aliases" ]] && source "$HOME/.aliases"
 [[ -f "$HOME/.functions" ]] && source "$HOME/.functions"
-[[ -f "$HOME/.env" ]] && source "$HOME/.env"
 [[ -f "$HOME/.prompt" ]] && source "$HOME/.prompt"
+[[ -f "$HOME/.path" ]] && source "$HOME/.path"

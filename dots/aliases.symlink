@@ -6,6 +6,7 @@
 
 alias ..="cd ../"
 alias ...="cd ../../"
+alias c="clear"
 
 alias lsa="ls -la"
 alias cpwd="pwd|tr -d '\n'|pbcopy"
