@@ -5,7 +5,7 @@
 # This script takes care of configuring git credentials and then symlinking
 # git dotfiles
 
-bootstrap_git () {
+bootstrap-git () {
   echo ""
 
   if [ -f git/gitconfig_local.symlink ]; then
@@ -13,16 +13,16 @@ bootstrap_git () {
     read -p "   Do you want to override it? [y/n] " confirm
 
     if [ $confirm == "y" ]; then
-      configure_locals
+      configure-locals
     fi
   else
-    configure_locals
+    configure-locals
   fi
 
   success-status "Git dotfiles are ready"
 }
 
-configure_locals () {
+configure-locals () {
   PROCEED=0
 
   info-status "Initializing Git Configuration..."

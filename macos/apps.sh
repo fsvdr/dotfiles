@@ -3,7 +3,7 @@
 # APPS!                                                                       #
 ###############################################################################
 
-bootstrap_apps () {
+bootstrap-apps () {
   # Let's install mas, a command line interface for the Mac App Store
   # https://github.com/mas-cli/mas
 
@@ -14,7 +14,7 @@ bootstrap_apps () {
     # Install apps from the mac app store
     if brew install mas 2>/dev/null; then
       success-status "Done"
-      do_install_mas
+      do-install-mas
     else
       error-status "Could not install mas. Skipping mac app store apps..."
     fi
@@ -25,7 +25,7 @@ bootstrap_apps () {
     if brew tap homebrew/cask 2>/dev/null; then
       brew tap caskroom/cask
       success-status "Done"
-      do_install_cask
+      do-install-cask
 
       success-status "Apps successfully installed!"
     else
@@ -38,7 +38,7 @@ bootstrap_apps () {
   fi
 }
 
-do_install_mas () {
+do-install-mas () {
   APPS=(
     497799835  # Xcode
     585829637  # Todoist
@@ -55,7 +55,7 @@ do_install_mas () {
   done
 }
 
-do_install_cask () {
+do-install-cask () {
   APPS=(
     tunnelblick
     staruml

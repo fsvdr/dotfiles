@@ -5,7 +5,7 @@
 # Let's get atom packages and configuration up and running
 
 # Install atom packages from source file at ~/.dotfiles/atom/packages.txt
-bootstrap_atom () {
+bootstrap-atom () {
   # Check for atom package manager
   if type apm >/dev/null 2>&1; then
     info-status "Installing atom packages..."
@@ -17,7 +17,7 @@ bootstrap_atom () {
 }
 
 # Backup current installed packages at ~/.dotfiles/atom/packages.txt
-safeguard_atom () {
+safeguard-atom () {
   if type apm >/dev/null 2>&1; then
     # Save all installed packages to ./packages.txt
     info-status "Creating atom packages backup..."

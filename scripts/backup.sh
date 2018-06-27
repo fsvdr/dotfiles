@@ -11,7 +11,7 @@ BACKUPEXCLUDES=(
   git-prompt.sh           # Neither does this one
 )
 
-do_backup () {
+do-backup () {
   DOTFILES_ROOT_OLD="$HOME/.dotfiles_old"
   info-status "Creating a backup for pre-existing dotfiles..."
 

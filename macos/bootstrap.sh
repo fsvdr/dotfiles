@@ -6,7 +6,7 @@
 # Heavily based on Mathias Bynen's dotfile
 # https://mths.be/macos
 
-bootstrap_macos () {
+bootstrap-macos () {
   echo ""
   info-status "Configuring macOS system preferences"
 

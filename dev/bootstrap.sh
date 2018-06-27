@@ -4,13 +4,13 @@
 ###############################################################################
 # This script installs a few tools for development
 
-bootstrap_dev () {
+bootstrap-dev () {
   echo ""
 
   info-status "Installing Homebrew"
   if /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" 2>/dev/null; then
     success-status "Done"
-    install_python
+    install-python
   else
     error-status "Could not install Homebrew. Skipping..."
   fi
@@ -20,7 +20,7 @@ bootstrap_dev () {
   info-status "Installing nvm"
   if curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash 2>/dev/null; then
     success-status "Done"
-    install_node
+    install-node
   else
     error-status "Could not install nvm. Skipping..."
   fi
@@ -37,7 +37,7 @@ bootstrap_dev () {
   fi
 }
 
-install_python () {
+install-python () {
   info-status "Installing pyenv"
 
   if brew install pyenv; then
@@ -47,7 +47,7 @@ install_python () {
   fi
 }
 
-install_node () {
+install-node () {
   info-status "Installing NodeJS"
 
   # Use nvm without reloading

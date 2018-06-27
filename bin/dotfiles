@@ -35,7 +35,7 @@ source "$DOTFILES_ROOT/macos/apps.sh"
 # Import atom scripts
 source "$DOTFILES_ROOT/atom/bootstrap.sh"
 
-display_help () {
+display-help () {
   echo ""
   echo "Dotfiles - A manager"
   echo "Usage: $BIN_NAME <command>"
@@ -53,7 +53,7 @@ display_help () {
   echo ""
 }
 
-display_command_error () {
+display-command-error () {
   error-status "Command $COMMAND_NAME was not found. For a list of available commands type"
   echo "  dotfiles help"
 }
@@ -67,38 +67,38 @@ bootstrap () {
   echo "* STEP 1 OF 7  -  Backup                                             *"
   echo "**********************************************************************"
 
-  do_backup
+  do-backup
 
   echo "**********************************************************************"
   echo "* STEP 2 OF 7  -  Git configuration                                  *"
   echo "* WARNING: This step requires some interaction                       *"
   echo "**********************************************************************"
 
-  bootstrap_git
+  bootstrap-git
 
   echo "**********************************************************************"
   echo "* STEP 3 OF 7  -  Link dotfiles                                      *"
   echo "**********************************************************************"
 
-  do_symlink
+  do-symlink
 
   echo "**********************************************************************"
   echo "* STEP 4 OF 7  -  Configure macOS defaults                           *"
   echo "**********************************************************************"
 
-  bootstrap_macos
+  bootstrap-macos
 
   echo "**********************************************************************"
   echo "* STEP 5 OF 7  -  Configure dev environment                          *"
   echo "**********************************************************************"
 
-  bootstrap_dev
+  bootstrap-dev
 
   echo "**********************************************************************"
   echo "* STEP 6 OF 7  -  Install applications                               *"
   echo "**********************************************************************"
 
-  bootstrap_apps
+  bootstrap-apps
 
   echo "**********************************************************************"
   echo "* STEP 7 OF 7  -  Configure editor                                   *"
@@ -109,7 +109,7 @@ bootstrap () {
 
   request-confirmation "Ready?"
   if [[ "$REPLY" =~ ^[Yy]$ ]] || [[ "$REPLY" = "" ]]; then
-    bootstrap_atom
+    bootstrap-atom
   else
     info-status "Skipping editor configuration..."
   fi
@@ -133,17 +133,17 @@ edit-dotfiles () {
 }
 
 case "$COMMAND_NAME" in
-  "" | "help")  display_help;;
+  "" | "help")  display-help;;
   "bootstrap")  bootstrap;;
-  "backup")     do_backup;;
-  "git")        do_backup && bootstrap_git && do_symlink;;
-  "symlink")    do_symlink;;
-  "macos")      bootstrap_macos;;
-  "dev")        bootstrap_dev;;
-  "apps")       bootstrap_apps;;
-  "atom")       do_symlink && bootstrap_atom;;
+  "backup")     do-backup;;
+  "git")        do-backup && bootstrap-git && do-symlink;;
+  "symlink")    do-symlink;;
+  "macos")      bootstrap-macos;;
+  "dev")        bootstrap-dev;;
+  "apps")       bootstrap-apps;;
+  "atom")       do-symlink && bootstrap-atom;;
   "update")     echo "Update package managers and system";;
   "disengage")  echo "Safeguard atom and other data for leaving the system";;
   "edit")       edit-dotfiles;;
-  *)            display_command_error;;
+  *)            display-command-error;;
 esac
