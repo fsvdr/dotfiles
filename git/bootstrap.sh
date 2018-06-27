@@ -10,9 +10,9 @@ bootstrap-git () {
 
   if [ -f git/gitconfig_local.symlink ]; then
     warning-status "Dotfile [gitconfig] is already configured."
-    read -p "   Do you want to override it? [y/n] " confirm
 
-    if [ $confirm == "y" ]; then
+    request-confirmation "Should I override it?"
+    if [[ "$REPLY" =~ ^[Yy]$ ]]; then
       configure-locals
     fi
   else
@@ -33,9 +33,8 @@ configure-locals () {
     read -p "   [User Email]: " git_email
     echo ""
 
-    read -p "   Confirm? [y/n] " confirm
-
-    if [ "$confirm" = "y" ]; then
+    request-confirmation "Confirm?"
+    if [[ "$REPLY" =~ ^[Yy]$ ]]; then
       PROCEED=1
 
       # Here we write gitconfig_local using gitconfig_local.example as a
