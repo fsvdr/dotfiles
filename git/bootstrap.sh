@@ -8,7 +8,7 @@
 bootstrap-git () {
   echo ""
 
-  if [ -f git/gitconfig_local.symlink ]; then
+  if [[ -f git/gitconfig_local.symlink ]]; then
     warning-status "Dotfile [gitconfig] is already configured."
 
     request-confirmation "Should I override it?"
@@ -26,11 +26,11 @@ configure-locals () {
   PROCEED=0
 
   info-status "Initializing Git Configuration..."
-  while [ $PROCEED -eq 0 ]; do
+  while [[ $PROCEED -eq 0 ]]; do
     echo ""
 
-    read -p "   [User Name]: " git_username
-    read -p "   [User Email]: " git_email
+    read -p "[User Name]: " git_username
+    read -p "[User Email]: " git_email
     echo ""
 
     request-confirmation "Confirm?"
