@@ -6,7 +6,7 @@
 # Make sure to terminate if something goes wrong
 set -e
 
-DOTFILES_ROOT="$HOME/dotfiles"
+DOTFILES_ROOT="$HOME/.dotfiles"
 
 BIN_NAME=$(basename "$0")
 COMMAND_NAME=$1
