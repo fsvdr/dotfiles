@@ -128,6 +128,10 @@ bootstrap () {
   echo ""
 }
 
+edit-dotfiles () {
+  $EDITOR $DOTFILES_ROOT
+}
+
 case "$COMMAND_NAME" in
   "" | "help")  display_help;;
   "bootstrap")  bootstrap;;
@@ -140,6 +144,6 @@ case "$COMMAND_NAME" in
   "atom")       do_symlink && bootstrap_atom;;
   "update")     echo "Update package managers and system";;
   "disengage")  echo "Safeguard atom and other data for leaving the system";;
-  "edit")       echo "Open dotfiles in editor";;
+  "edit")       edit-dotfiles;;
   *)            display_command_error;;
 esac
