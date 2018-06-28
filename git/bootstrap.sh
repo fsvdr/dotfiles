@@ -12,7 +12,7 @@ bootstrap-git () {
     warning-status "Dotfile [gitconfig] is already configured."
 
     request-confirmation "Should I override it?"
-    if [[ "$REPLY" =~ ^[Yy]$ ]]; then
+    if [[ "$REPLY" =~ ^[Yy]$ ]] || [[ "$REPLY" = "" ]]; then
       configure-locals
     fi
   else
@@ -34,7 +34,7 @@ configure-locals () {
     echo ""
 
     request-confirmation "Confirm?"
-    if [[ "$REPLY" =~ ^[Yy]$ ]]; then
+    if [[ "$REPLY" =~ ^[Yy]$ ]] || [[ "$REPLY" = "" ]]; then
       PROCEED=1
 
       # Here we write gitconfig_local using gitconfig_local.example as a

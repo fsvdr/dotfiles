@@ -5,6 +5,11 @@
 
 PATH="~/.dotfiles/bin:$PATH"
 
+# pyenv shims and autocompletion
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+
 # Remove duplicates
 # Source: http://unix.stackexchange.com/a/40755
 PATH=`echo -n $PATH | awk -v RS=: '{ if (!arr[$0]++) {printf("%s%s",!ln++?"":":",$0)}}'`
