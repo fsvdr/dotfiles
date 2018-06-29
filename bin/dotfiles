@@ -14,6 +14,9 @@ COMMAND_NAME=$1
 # Let's buckle up ourselves with some utilities
 source "$DOTFILES_ROOT/scripts/helpers.sh"
 
+# Import maintenance related scripts
+source "$DOTFILES_ROOT/scripts/maintenance.sh"
+
 # Import symlink script
 source "$DOTFILES_ROOT/scripts/symlink.sh"
 
@@ -42,14 +45,18 @@ display-help () {
   echo ""
   echo "where <command> is one of:"
   echo "  help      - Displays this message"
-  echo "  backup    - Backs up any previous dotfiles"
-  echo "  symlink   - Symlinks dotfiles (backup is done first)"
   echo "  bootstrap - Takes care of setting up your environment as a new one"
+  echo "  backup    - Backs up any previous dotfiles"
   echo "  git       - Takes care of git dotfiles configuration"
-  echo "  dev       - Installs dependencies for dev environment"
+  echo "  symlink   - Symlinks dotfiles (backup is done first)"
   echo "  macos     - Apply macOS system defaults"
+  echo "  dev       - Installs dependencies for dev environment"
   echo "  apps      - Install apps (App Store and via cask)"
   echo "  atom      - Install atom packages"
+  echo "  update    - Updates packages and pkg managers (OS, brew, npm)"
+  echo "  clean     - Clean up caches (brew, npm)"
+  echo "  disengage - Prepare everything to leave current system"
+  echo "  edit      - Open dotfiles in prefered editor"
   echo ""
 }
 
@@ -60,51 +67,52 @@ display-command-error () {
 
 bootstrap () {
   echo "Dotfiles"
-  echo "Hello there! Let's set you in shall we?"
+  echo "🤖  Well hello sir, this computer seems a bit odd. Let me configure"
+  echo "and customize it for you."
 
   echo ""
   echo "**********************************************************************"
   echo "* STEP 1 OF 7  -  Backup                                             *"
   echo "**********************************************************************"
-
+  echo ""
   do-backup
-
+  echo ""
   echo "**********************************************************************"
   echo "* STEP 2 OF 7  -  Git configuration                                  *"
   echo "* WARNING: This step requires some interaction                       *"
   echo "**********************************************************************"
-
+  echo ""
   bootstrap-git
-
+  echo ""
   echo "**********************************************************************"
   echo "* STEP 3 OF 7  -  Link dotfiles                                      *"
   echo "**********************************************************************"
-
+  echo ""
   do-symlink
-
+  echo ""
   echo "**********************************************************************"
   echo "* STEP 4 OF 7  -  Configure macOS defaults                           *"
   echo "**********************************************************************"
-
+  echo ""
   bootstrap-macos
-
+  echo ""
   echo "**********************************************************************"
   echo "* STEP 5 OF 7  -  Configure dev environment                          *"
   echo "**********************************************************************"
-
+  echo ""
   bootstrap-dev
-
+  echo ""
   echo "**********************************************************************"
   echo "* STEP 6 OF 7  -  Install applications                               *"
   echo "**********************************************************************"
-
+  echo ""
   bootstrap-apps
-
+  echo ""
   echo "**********************************************************************"
   echo "* STEP 7 OF 7  -  Configure editor                                   *"
   echo "* WARNING: This step requires some interaction                       *"
   echo "**********************************************************************"
-
+  echo ""
   warning-status "Before proceeding please open atom and install the shell scripts"
 
   request-confirmation "Ready?"
@@ -113,23 +121,22 @@ bootstrap () {
   else
     info-status "Skipping editor configuration..."
   fi
-
+  echo ""
   echo "**********************************************************************"
-  echo "* DONE  -  Restart your computer to persist changes                  *"
+  echo "* DONE  -  Please restart your computer to persist changes           *"
   echo "**********************************************************************"
-
+  echo ""
   request-confirmation "Do you want to restart now?"
   if [[ "$REPLY" =~ ^[Yy]$ ]] || [[ "$REPLY" = "" ]]; then
     sudo shutdown -r now
   fi
-
   echo ""
-  echo "Well that was a cool ride wasn't it? 🤖"
   echo ""
-}
-
-edit-dotfiles () {
-  $EDITOR $DOTFILES_ROOT
+  echo "Everything is ready now Sir. If you need anything else you can call me"
+  echo "from anywhere by typing:"
+  echo "  dotfiles"
+  echo "Have a good evening Sir 🤖"
+  echo ""
 }
 
 case "$COMMAND_NAME" in
@@ -142,8 +149,9 @@ case "$COMMAND_NAME" in
   "dev")        bootstrap-dev;;
   "apps")       bootstrap-apps;;
   "atom")       do-symlink && bootstrap-atom;;
-  "update")     echo "Update package managers and system";;
+  "update")     do-update;;
+  "clean")      do-clean;;
   "disengage")  echo "Safeguard atom and other data for leaving the system";;
-  "edit")       edit-dotfiles;;
+  "edit")       do-edit;;
   *)            display-command-error;;
 esac
