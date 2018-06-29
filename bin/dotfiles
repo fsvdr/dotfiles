@@ -55,7 +55,7 @@ display-help () {
   echo "  atom      - Install atom packages"
   echo "  update    - Updates packages and pkg managers (OS, brew, npm)"
   echo "  clean     - Clean up caches (brew, npm)"
-  echo "  disengage - Prepare everything to leave current system"
+  echo "  disengage - Pack important data up before leaving the ship"
   echo "  edit      - Open dotfiles in prefered editor"
   echo ""
 }
@@ -135,7 +135,7 @@ bootstrap () {
   echo "Everything is ready now Sir. If you need anything else you can call me"
   echo "from anywhere by typing:"
   echo "  dotfiles"
-  echo "Have a good evening Sir 🤖"
+  echo "Have a good evening Sir  🤖"
   echo ""
 }
 
@@ -151,7 +151,7 @@ case "$COMMAND_NAME" in
   "atom")       do-symlink && bootstrap-atom;;
   "update")     do-update;;
   "clean")      do-clean;;
-  "disengage")  echo "Safeguard atom and other data for leaving the system";;
+  "disengage")  do-disengage;;
   "edit")       do-edit;;
   *)            display-command-error;;
 esac

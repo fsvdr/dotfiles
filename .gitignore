@@ -8,3 +8,5 @@ atom.symlink/packages
 atom.symlink/storage
 
 git/gitconfig_local.symlink
+
+lifeguard-kit
