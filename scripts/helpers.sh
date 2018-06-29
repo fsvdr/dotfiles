@@ -28,3 +28,24 @@ request-confirmation () {
   read -p "$1 [Y/n] " -n 1 -r
   echo
 }
+
+# Changes ssh directory and files permissions
+# [http://superuser.com/questions/215504/ddg#215506]
+set-ssh-permissions () {
+  info-status "Changing ssh keys permissions"
+
+  # .ssh directory (drwx------)
+  chmod 700 $HOME/.ssh
+
+  # Private keys (-rw-------)
+  for key in $(ls $HOME/.ssh); do
+    chmod 600 $HOME/.ssh/$key
+  done
+
+  # Public keys (-rw-r--r--)
+  for key in $(find -H $HOME/.ssh -maxdepth 1 -name "*.pub"); do
+    chmod 644 "$key"
+  done
+
+  success-status "Done"
+}
