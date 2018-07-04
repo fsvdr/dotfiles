@@ -7,6 +7,7 @@
 set -e
 
 DOTFILES_ROOT="$HOME/.dotfiles"
+SCREENSHOTS_LOC="📷  Screenshots"
 
 BIN_NAME=$(basename "$0")
 COMMAND_NAME=$1

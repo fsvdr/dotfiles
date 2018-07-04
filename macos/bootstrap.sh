@@ -82,7 +82,6 @@ bootstrap-macos () {
   defaults write com.apple.screensaver askForPasswordDelay -int 0
 
   # Save screenshots to dedicated folder
-  SCREENSHOTS_LOC="📷  Screenshots"
   mkdir -p "${HOME}/Desktop/${SCREENSHOTS_LOC}"
   defaults write com.apple.screencapture location -string "${HOME}/Desktop/${SCREENSHOTS_LOC}"
 

@@ -72,6 +72,16 @@ do-disengage () {
     error-status "Cool man, skipping..."
   fi
 
+  request-confirmation "Dou you want to pack your screenshots folder?"
+  if [[ "$REPLY" =~ ^[Yy]$ ]] || [[ "$REPLY" = "" ]]; then
+    echo $SCREENSHOTS_LOC
+    if mv "$HOME/Desktop/$SCREENSHOTS_LOC" "$DOTFILES_ROOT/lifeguard-kit" >/dev/null 2>&1; then
+      success-status "Done"
+    else
+      error-status "Whoops, something went wrong there"
+    fi
+  fi
+
   # Create encrypted disk image of the lifeguard kit
   # Thanks to The Instructional for this one [http://www.theinstructional.com/guides/disk-management-from-the-command-line-part-3]
 
