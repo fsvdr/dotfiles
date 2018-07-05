@@ -39,6 +39,9 @@
     autoIndentJSX: true
     createTranspiledCode: true
     transpileOnSave: true
+  nuclide:
+    "nuclide-flow":
+      warnOnNotInstalled: false
   "prettier-atom":
     formatOnSaveOptions:
       enabled: true
