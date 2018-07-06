@@ -3,14 +3,14 @@
 # HOMBREW INSTALL                                                             #
 ###############################################################################
 
-PACKAGES=(
-  "mas"
-  "pyenv"
-  "yarn"
-  "mongodb"
-)
-
 bootstrap-brew () {
+  PACKAGES=(
+    "mas"
+    "pyenv"
+    "yarn"
+    "mongodb"
+  )
+
   info-status "Installing Homebrew"
 
   if type brew &>/dev/null 2>&1; then

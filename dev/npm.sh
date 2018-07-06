@@ -3,15 +3,15 @@
 # NPM PACKAGES                                                                #
 ###############################################################################
 
-PACKAGES=(
-  "bash-language-server"
-  "create-react-app"
-  "create-react-native-app"
-  "parcel"
-  "@angular/cli"
-)
-
 do-install-npm-deps () {
+  PACKAGES=(
+    "bash-language-server"
+    "create-react-app"
+    "create-react-native-app"
+    "parcel"
+    "@angular/cli"
+  )
+
   info-status "Installing npm global dependency packages"
 
   if type npm 1>/dev/null 2>&1; then
