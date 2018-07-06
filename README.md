@@ -9,13 +9,14 @@ On a fresh new macOS environment update everything and install Xcode's command l
 ```
 sudo softwareupdate -i -a
 xcode-select --install
+xcodebuild -license
 ```
 
 Then install the dotfiles repository:
 
 ```
-git clone git@github.com:fsvdr/dotfiles.git ~/.dotfiles
-~/.dotfiles/bin bootstrap
+git clone https://github.com/fsvdr/dotfiles.git ~/.dotfiles
+cd ~/.dotfiles && ./bin/dotfiles bootstrap
 ```
 
 This will run the installation script which will go through a few automation tasks:
