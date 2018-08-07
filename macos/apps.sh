@@ -46,6 +46,9 @@ do-install-mas () {
     441258766  # Magnet
     425424353  # The Unarchiver
     525742250  # JPEGmini
+    824171161  # Affinity Designer
+    408981434  # iMovie
+    957734279  # Toggl Desktop
   )
 
   for app in "${APPS[@]}"; do
