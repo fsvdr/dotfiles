@@ -9,5 +9,5 @@ insert_final_newline = true
 indent_style = space
 indent_size = 2
 
-[*.{html, py}]
+[*.{html,py,pug}]
 indent_size = 4

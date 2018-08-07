@@ -37,7 +37,7 @@ do-install-node () {
   set +e
 
   # Install both, most current and long term support versions
-  if nvm install node && nvm install --lts 2>/dev/null; then
+  if nvm install --lts && nvm install node 2>/dev/null; then
     success-status "Done"
   else
     error-status "Could not install NodeJS. You can try to do it later by typing"

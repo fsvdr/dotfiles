@@ -25,6 +25,8 @@
       "one-dark-ui"
       "atom-ide-dark-syntax"
     ]
+  docblockr:
+    extend_double_slash: false
   editor:
     fontSize: 8
     showIndentGuide: true
@@ -45,6 +47,7 @@
   "prettier-atom":
     formatOnSaveOptions:
       enabled: true
+      isDisabledIfNoConfigFile: true
     prettierOptions:
       singleQuote: true
     useEslint: true
