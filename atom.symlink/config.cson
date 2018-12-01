@@ -19,6 +19,9 @@
     disabledPackages: [
       "tree-view"
       "image-view"
+      "git-diff"
+      "prettier-atom"
+      "linter"
     ]
     telemetryConsent: "no"
     themes: [
@@ -29,6 +32,7 @@
     extend_double_slash: false
   editor:
     fontSize: 8
+    preferredLineLength: 120
     showIndentGuide: true
     softWrap: true
     softWrapAtPreferredLineLength: true
@@ -40,17 +44,17 @@
   "language-babel":
     autoIndentJSX: true
     createTranspiledCode: true
-    transpileOnSave: true
+  "linter-eslint":
+    fixOnSave: true
   nuclide:
     "nuclide-flow":
       warnOnNotInstalled: false
   "prettier-atom":
     formatOnSaveOptions:
-      enabled: true
-      isDisabledIfNoConfigFile: true
+      isDisabledIfNotInPackageJson: true
+      showInStatusBar: true
     prettierOptions:
       singleQuote: true
-    useEslint: true
     useStylelint: true
   "tool-bar":
     iconSize: "12px"
