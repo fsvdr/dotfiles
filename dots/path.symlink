@@ -4,6 +4,7 @@
 ###############################################################################
 
 PATH="~/.dotfiles/bin:$PATH"
+PATH="/Users/fsvdr/Library/Android/sdk/platform-tools:$PATH"
 
 # pyenv shims and autocompletion
 if command -v pyenv 1>/dev/null 2>&1; then

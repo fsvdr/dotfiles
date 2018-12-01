@@ -35,3 +35,6 @@ alias zip="zip -x *.DS_Store -x *__MACOSX* -x *.AppleDouble* -r"
 
 # Print each PATH entry on a separate line
 alias path='echo -e ${PATH//:/\\n}'
+
+# Shortpath to Android SDK emulator binary
+alias android="${ANDROID_SDK}/emulator/emulator"
