@@ -38,17 +38,16 @@ bootstrap-apps () {
 
 do-install-mas () {
   APPS=(
-    497799835  # Xcode
+    824171161  # Affinity Designer
+    408981434  # iMovie
+    525742250  # JPEGmini
+    441258766  # Magnet
+    747648890  # Telegram
+    425424353  # The Unarchiver
     585829637  # Todoist
     409789998  # Twitter
     931134707  # Wire
-    747648890  # Telegram
-    441258766  # Magnet
-    425424353  # The Unarchiver
-    525742250  # JPEGmini
-    824171161  # Affinity Designer
-    408981434  # iMovie
-    957734279  # Toggl Desktop
+    497799835  # Xcode
   )
 
   for app in "${APPS[@]}"; do
@@ -58,27 +57,35 @@ do-install-mas () {
 
 do-install-cask () {
   APPS=(
-    tunnelblick
-    staruml
-    skyfonts
-    abstract
-    sketch
-    sketch-toolbox
-    coda
+    # Dev
     atom
-    signal
-    firefox
-    spotify
-    xampp
-    postgres
+    android-studio
+    coda
     insomnia
-    google-chrome
-    visual-studio-code
-    tableplus
     mongodb-compass
-    1password
-    google-backup-and-sync
+    staruml
+    postgres
+    tableplus
+    visual-studio-code
+    xampp
+
+    # Design
+    abstract
     craftmanager
+    rightfont
+    sketch
+
+    # Entretainment
+    pocket-casts
+    spotify
+
+    # Everything else
+    1password
+    firefox
+    google-chrome
+    signal
+    tunnelblick
+    protonvpn
   )
 
   for app in "${APPS[@]}"; do
