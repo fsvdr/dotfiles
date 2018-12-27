@@ -67,7 +67,7 @@ do-install-cask () {
     postgres
     tableplus
     visual-studio-code
-    xampp
+    xampp-vm
 
     # Design
     abstract
