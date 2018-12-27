@@ -18,10 +18,8 @@
       ]
     disabledPackages: [
       "tree-view"
-      "image-view"
-      "git-diff"
-      "prettier-atom"
       "linter"
+      "image-view"
     ]
     telemetryConsent: "no"
     themes: [
@@ -31,7 +29,7 @@
   docblockr:
     extend_double_slash: false
   editor:
-    fontSize: 8
+    fontSize: 9
     preferredLineLength: 120
     showIndentGuide: true
     softWrap: true
@@ -46,9 +44,13 @@
     createTranspiledCode: true
   "linter-eslint":
     fixOnSave: true
+  "linter-ui-default":
+    showPanel: true
   nuclide:
     "nuclide-flow":
       warnOnNotInstalled: false
+    use:
+      "atom-ide-diagnostics-ui": "never"
   "prettier-atom":
     formatOnSaveOptions:
       isDisabledIfNotInPackageJson: true
