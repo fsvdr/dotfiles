@@ -42,6 +42,7 @@ do-install-mas () {
     408981434  # iMovie
     525742250  # JPEGmini
     441258766  # Magnet
+    803453959  # Slack
     747648890  # Telegram
     425424353  # The Unarchiver
     585829637  # Todoist
