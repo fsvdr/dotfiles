@@ -5,6 +5,7 @@
 
 bootstrap-brew () {
   PACKAGES=(
+    "git-lfs"
     "mas"
     "pyenv"
     "yarn"
