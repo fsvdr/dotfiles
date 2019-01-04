@@ -18,8 +18,8 @@
       ]
     disabledPackages: [
       "tree-view"
-      "linter"
       "image-view"
+      "linter"
     ]
     telemetryConsent: "no"
     themes: [
@@ -45,12 +45,13 @@
   "linter-eslint":
     fixOnSave: true
   "linter-ui-default":
-    showPanel: true
+    panelHeight: 265
   nuclide:
+    "atom-ide-diagnostics-ui": {}
     "nuclide-flow":
       warnOnNotInstalled: false
     use:
-      "atom-ide-diagnostics-ui": "never"
+      "atom-ide-diagnostics-ui": "always"
   "prettier-atom":
     formatOnSaveOptions:
       isDisabledIfNotInPackageJson: true
