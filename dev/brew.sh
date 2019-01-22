@@ -10,6 +10,7 @@ bootstrap-brew () {
     "pyenv"
     "yarn"
     "mongodb"
+    "php"
   )
 
   info-status "Installing Homebrew"
