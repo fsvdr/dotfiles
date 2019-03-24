@@ -3,7 +3,7 @@
 # PYTHON INSTALL                                                              #
 ###############################################################################
 
-PYENVLATEST="3.6.3"
+PYENVLATEST="3.7.2"
 PYENVPREFIX=${PYENVLATEST:0:3} # Gives us major.minor
 
 do-install-python () {
