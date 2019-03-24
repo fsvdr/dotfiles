@@ -39,6 +39,7 @@ bootstrap-apps () {
 do-install-mas () {
   APPS=(
     824171161  # Affinity Designer
+    1451177988 # Carbonize
     408981434  # iMovie
     525742250  # JPEGmini
     441258766  # Magnet
