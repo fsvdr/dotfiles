@@ -76,6 +76,7 @@ do-install-cask () {
     craftmanager
     rightfont
     sketch
+    figma
 
     # Entretainment
     pocket-casts
