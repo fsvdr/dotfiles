@@ -20,6 +20,7 @@
       "tree-view"
       "image-view"
       "linter"
+      "linter-ui-default"
     ]
     telemetryConsent: "no"
     themes: [
@@ -29,7 +30,7 @@
   docblockr:
     extend_double_slash: false
   editor:
-    fontSize: 9
+    fontSize: 10
     preferredLineLength: 120
     showIndentGuide: true
     softWrap: true
@@ -43,7 +44,8 @@
     autoIndentJSX: true
     createTranspiledCode: true
   "linter-eslint":
-    fixOnSave: true
+    autofix:
+      fixOnSave: true
   "linter-ui-default":
     panelHeight: 265
   nuclide:
