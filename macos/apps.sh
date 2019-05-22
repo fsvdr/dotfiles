@@ -39,16 +39,17 @@ bootstrap-apps () {
 do-install-mas () {
   APPS=(
     824171161  # Affinity Designer
+    1091189122 # Bear
     1451177988 # Carbonize
     408981434  # iMovie
     525742250  # JPEGmini
     441258766  # Magnet
+    1051767777 # MeisterTask
     803453959  # Slack
     747648890  # Telegram
     425424353  # The Unarchiver
     585829637  # Todoist
     409789998  # Twitter
-    931134707  # Wire
     497799835  # Xcode
   )
 
@@ -68,6 +69,8 @@ do-install-cask () {
     staruml
     postgres
     tableplus
+    vagrant
+    virtual-box
     visual-studio-code
     xampp-vm
 
@@ -86,6 +89,8 @@ do-install-cask () {
     1password
     firefox
     google-chrome
+    imageoptim
+    keybase
     signal
     tunnelblick
     protonvpn
