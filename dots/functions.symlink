@@ -42,3 +42,29 @@ editorconfig() {
     cat "$HOME/.editorconfig" > ./.editorconfig
   fi
 }
+
+# Git author email
+#
+# @param $1 Variable to which email will be assigned
+gae() {
+  # We'll terminate the function with error code if there's
+  # no git installed
+  type git &>/dev/null 2>&1
+
+  if [[ $? > 0 ]]; then
+    return 1
+  fi
+
+  local TARGETVAR=$1
+  local GITAUTHOREMAIL=$(git config user.email)
+
+  # If user provided a target variable we'll use that for
+  # assignment, otherwise we'll just print the result
+  if [[ -n "$TARGETVAR" ]]; then
+    eval $TARGETVAR="$GITAUTHOREMAIL"
+  else
+    echo $GITAUTHOREMAIL
+  fi
+
+  return 0
+}

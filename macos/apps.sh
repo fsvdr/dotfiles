@@ -73,6 +73,7 @@ do-install-cask () {
     virtual-box
     visual-studio-code
     xampp-vm
+    android-file-transfer
 
     # Design
     abstract
