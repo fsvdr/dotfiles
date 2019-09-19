@@ -64,13 +64,14 @@ do-install-cask () {
     atom
     android-studio
     coda
+    fork
     insomnia
     mongodb-compass
     staruml
     postgres
     tableplus
     vagrant
-    virtual-box
+    virtualbox
     visual-studio-code
     xampp-vm
     android-file-transfer
