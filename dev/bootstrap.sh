@@ -11,12 +11,12 @@ source "$DOTFILES_ROOT/dev/pyenv.sh"
 
 bootstrap-dev () {
   bootstrap-brew
-  bootstrap-nvm
+  # bootstrap-nvm
 
-  request-confirmation "Do you want me to install npm packages?"
-  if [[ "$REPLY" =~ ^[Yy]$ ]] || [[ "$REPLY" = "" ]]; then
-    do-install-npm-deps
-  fi
+  # request-confirmation "Do you want me to install npm packages?"
+  # if [[ "$REPLY" =~ ^[Yy]$ ]] || [[ "$REPLY" = "" ]]; then
+    # do-install-npm-deps
+  # fi
   
   do-install-python
 
