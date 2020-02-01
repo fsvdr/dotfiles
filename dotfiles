@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+source "${0%/*}/utils/confirmation.sh"
+
+__help="
+Dotfiles — A manager
+Usage: dotfiles <command>
+
+where <command> is one of:
+  help      -   Displays this banner
+  configure -   Runs the entire configuration script on the host machine
+"
+
+__configure="
+Dotfiles configuration
+
+This command will go through a series of steps to configure the host machine's preferences, setup the development environment and install applications.
+
+"
+
+configure() {
+  echo "$__configure"
+
+  if ! confirm "Do you want to proceed with configuration?"; then
+    echo ""
+    return 1
+  fi
+}
+
+case "$1" in
+  "help" | "-h")    echo "$__help";;
+  "configure")      configure;;
+  *)                echo "$__help";;
+esac
