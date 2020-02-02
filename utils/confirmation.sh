@@ -11,10 +11,12 @@ confirm() {
   read -n 1 -r -p "$1 [y/n] " ANSWER
 
   if [[ "${ANSWER:-"y"}" =~ ^[yY]$ ]]; then
+    echo "" && echo ""
     return 0
   fi
 
   if [[ "$ANSWER" =~ ^[nN]$ ]]; then
+    echo "" && echo ""
     return 1
   fi
 

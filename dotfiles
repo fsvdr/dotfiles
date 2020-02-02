@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 source "${0%/*}/utils/confirmation.sh"
+source "${0%/*}/git/git.sh"
 
 __help="
 Dotfiles — A manager
@@ -18,12 +19,23 @@ This command will go through a series of steps to configure the host machine's p
 
 "
 
+__progress="  ⏳ In Progress...      "
+__skipped_="  ⏭ Skipped             "
+__is__done="  ✅ Done                "
+__is_error="  ❌ Something went wrong"
+__clean_pg="                         "
+
 configure() {
   echo "$__configure"
 
-  if ! confirm "Do you want to proceed with configuration?"; then
-    echo ""
-    return 1
+  echo -ne "[1/1] 🔃 Git configuration \n"
+
+  if confirm "Proceed?"; then
+    if git-configure; then
+      echo $__is__done
+    fi
+  else
+    echo $__skipped_
   fi
 }
 
