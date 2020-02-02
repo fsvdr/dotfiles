@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 source "${0%/*}/utils/confirmation.sh"
+source "${0%/*}/utils/configuration-report.sh"
 source "${0%/*}/git/git.sh"
 
 __help="
@@ -19,24 +20,10 @@ This command will go through a series of steps to configure the host machine's p
 
 "
 
-__progress="  ⏳ In Progress...      "
-__skipped_="  ⏭ Skipped             "
-__is__done="  ✅ Done                "
-__is_error="  ❌ Something went wrong"
-__clean_pg="                         "
-
 configure() {
   echo "$__configure"
 
-  echo -ne "[1/1] 🔃 Git configuration \n"
-
-  if confirm "Proceed?"; then
-    if git-configure; then
-      echo $__is__done
-    fi
-  else
-    echo $__skipped_
-  fi
+  configuration-report "[1/1] 🔃 Git configuration" git-configure
 }
 
 case "$1" in
