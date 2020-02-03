@@ -13,6 +13,7 @@ configuration-report() {
   local __is_error="  ❌ Something went wrong"
   local __clean_pg="                         "
 
+  echo ""
   echo -ne "$1 \n"
 
   if ! confirm "Proceed?"; then

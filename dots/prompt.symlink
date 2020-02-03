@@ -1,0 +1,75 @@
+#!/usr/bin/env bash
+###############################################################################
+# PROMPT PERSONALIZATION                                                      #
+###############################################################################
+# Let's get this sucker some style
+
+# Map of emails used in git to user prompt
+USERROLES=(
+ '<email>:<prompt>'
+)
+
+# Get user role prompt for the current directory
+user-prompt() {
+  local USERROLE=" 🚀  $(whoami)"
+
+  local GITAUTHOREMAIL=$(gae)
+  if [[ -n $GITAUTHOREMAIL ]]; then
+    # Loop through each defined role till we find
+    # the one used in the current directory's git configuration
+    for ROLE in "${USERROLES[@]}" ; do
+        if [[ "${ROLE%%:*}" == $GITAUTHOREMAIL ]]; then
+          USERROLE="${ROLE##*:}"
+        fi
+    done
+  fi
+
+  echo $USERROLE
+  return 0
+}
+
+DIRECTORY="\W"
+GITBRANCH="\$(__git_ps1)"
+COLORRESET="\[\e[0m\]"
+USER="\$(user-prompt)"
+
+# Normal Colors
+BLACK="\[\e[30m\]"
+RED="\[\e[31m\]"
+GREEN="\[\e[32m\]"
+YELLOW="\[\e[33m\]"
+BLUE="\[\e[34m\]"
+PURPLE="\[\e[35m\]"
+CYAN="\[\e[36m\]"
+WHITE="\[\e[37m\]"
+
+# Bold Colors
+BBLACK="\[\e[1;30m\]"
+BRED="\[\e[1;31m\]"
+BGREEN="\[\e[1;32m\]"
+BYELLOW="\[\e[1;33m\]"
+BBLUE="\[\e[1;34m\]"
+BPURPLE="\[\e[1;35m\]"
+BCYAN="\[\e[1;36m\]"
+BWHITE="\[\e[1;37m\]"
+
+# Underlined Colors
+UBLACK="\[\e[4;30m\]"
+URED="\[\e[4;31m\]"
+UGREEN="\[\e[4;32m\]"
+UYELLOW="\[\e[4;33m\]"
+UBLUE="\[\e[4;34m\]"
+UPURPLE="\[\e[4;35m\]"
+UCYAN="\[\e[4;36m\]"
+UWHITE="\[\e[4;37m\]"
+
+export GIT_PS1_SHOWDIRTYSTATE=true
+
+PS1="${BBLACK} ${USER}${COLORRESET}"
+PS1="${PS1} ${BWHITE}[${UWHITE}${DIRECTORY}${COLORRESET}${BWHITE}]${COLORRESET}"  # Working directory
+PS1="${PS1}${BRED}${GITBRANCH}${COLORRESET}"  # Git branch
+PS1="${PS1}  👉  "  # Emoji :)
+
+export PS1
+
+export PS2=" 💬  "

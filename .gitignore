@@ -7,6 +7,6 @@ atom.symlink/compile-cache
 atom.symlink/packages
 atom.symlink/storage
 
-git/gitconfig_local.symlink
+dots/gitconfig_local.symlink
 
 lifeguard-kit

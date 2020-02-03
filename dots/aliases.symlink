@@ -1,0 +1,43 @@
+#!/usr/bin/env bash
+###############################################################################
+# ALIASES                                                                     #
+###############################################################################
+# Love them, hate them, actually remember them or not, here come the aliases...
+
+alias ..="cd ../"
+alias ...="cd ../../"
+alias c="clear"
+
+alias lsa="ls -la"
+alias cpwd="pwd|tr -d '\n'|pbcopy"
+
+# Git
+alias g="git"
+alias gs="git status"
+alias ga="git add"
+alias gcm="git commit -m"
+alias calm="git add -A && git commit -m"
+
+# Recursively remove .DS_Store files
+alias cleanup-ds="find . -type f -name '*.DS_Store' -ls -delete"
+
+# Network utilities
+alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
+alias local-ip="ipconfig getifaddr en0"
+
+# Lock the screen
+alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
+
+# Exclude macOS specific files in ZIP archives
+# [$1] - target
+# [$2] - source
+alias zip="zip -x *.DS_Store -x *__MACOSX* -x *.AppleDouble* -r"
+
+# Print each PATH entry on a separate line
+alias path='echo -e ${PATH//:/\\n}'
+
+# Shortpath to Android SDK emulator binary
+alias android="${ANDROID_SDK}/emulator/emulator"
+
+# Shortpath to brews php binary
+alias brew-php="/usr/local/Cellar/php/7.3.1/bin/php"

@@ -1,0 +1,24 @@
+###############################################################################
+# BASH PROFILE                                                                #
+###############################################################################
+# This is it folks, welcome to dotland
+
+[[ -f "$HOME/.git-completion.bash" ]] && source "$HOME/.git-completion.bash"
+[[ -f "$HOME/.git-prompt.sh" ]] && source "$HOME/.git-prompt.sh"
+
+[[ -f "$HOME/.env" ]] && source "$HOME/.env"
+[[ -f "$HOME/.aliases" ]] && source "$HOME/.aliases"
+[[ -f "$HOME/.functions" ]] && source "$HOME/.functions"
+[[ -f "$HOME/.prompt" ]] && source "$HOME/.prompt"
+[[ -f "$HOME/.path" ]] && source "$HOME/.path"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export VOLTA_HOME="/Users/fsvdr/.volta"
+grep --silent "$VOLTA_HOME/bin" <<< $PATH || export PATH="$VOLTA_HOME/bin:$PATH"
+
+# Setting PATH for Python 3.8
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/3.8/bin:${PATH}"
+export PATH

@@ -4,7 +4,7 @@
   Configure global Git user credentials
 '
 git-configure() {
-  if [[ -f "${0%/*}/git/gitconfig_local.symlink" ]]; then
+  if [[ -f "${0%/*}/dots/gitconfig_local.symlink" ]]; then
     if ! confirm "Git credentials have been configured, override?"; then
       return 0
     fi
@@ -21,5 +21,5 @@ git-configure() {
   # Here we write gitconfig_local using gitconfig_local.example as a
   # template and replacing the users credentials with the ones
   # provided
-  sed -e "s/<USERNAME>/$git_username/g" -e "s/<EMAIL>/$git_email/g" "git/gitconfig_local.symlink.example" > "git/gitconfig_local.symlink"
+  sed -e "s/<USERNAME>/$git_username/g" -e "s/<EMAIL>/$git_email/g" "dots/gitconfig_local.symlink.example" > "dots/gitconfig_local.symlink"
 }
