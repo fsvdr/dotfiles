@@ -2,8 +2,8 @@
 
 source "${0%/*}/utils/confirmation.sh"
 source "${0%/*}/utils/configuration-report.sh"
-source "${0%/*}/git-configure.sh"
-source "${0%/*}/dotfiles-symlink.sh"
+source "${0%/*}/scripts/git-configure.sh"
+source "${0%/*}/scripts/dotfiles-symlink.sh"
 source "${0%/*}/scripts/environment-configure.sh"
 
 __help="
