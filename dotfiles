@@ -5,6 +5,7 @@ source "${0%/*}/utils/configuration-report.sh"
 source "${0%/*}/scripts/git-configure.sh"
 source "${0%/*}/scripts/dotfiles-symlink.sh"
 source "${0%/*}/scripts/environment-configure.sh"
+source "${0%/*}/scripts/apps-install.sh"
 
 __help="
 Dotfiles — A manager
@@ -24,9 +25,10 @@ This command will go through a series of steps to configure the host machine's p
 configure() {
   echo "$__configure"
 
-  configuration-report "[1/3] 🔃 Git configuration" git-configure
-  configuration-report "[2/3] 🔗 Symlink dotfiles" dotfiles-symlink
-  configuration-report "[3/3] 🏗 Environment configuration" environment-configure
+  configuration-report "[1/4] 🔃 Git configuration" git-configure
+  configuration-report "[2/4] 🔗 Symlink dotfiles" dotfiles-symlink
+  configuration-report "[3/4] 🏗 Environment configuration" environment-configure
+  configuration-report "[4/4] 📲 Apps installation" apps-install
 }
 
 case "$1" in
