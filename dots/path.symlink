@@ -3,7 +3,7 @@
 # PATH                                                                        #
 ###############################################################################
 
-PATH="~/.dotfiles/bin:$PATH"
+PATH="~/.dotfiles:$PATH"
 PATH="/Users/fsvdr/Library/Android/sdk/platform-tools:$PATH"
 
 # pyenv shims and autocompletion
