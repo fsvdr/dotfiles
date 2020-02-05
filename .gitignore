@@ -2,11 +2,11 @@
 
 atom.symlink/.apm
 atom.symlink/.node-gyp
+.atom-socket-secret*
 atom.symlink/blob-store
 atom.symlink/compile-cache
 atom.symlink/packages
 atom.symlink/storage
+atom.symlink/recovery
 
 dots/gitconfig_local.symlink
-
-lifeguard-kit

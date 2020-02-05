@@ -1,0 +1,64 @@
+"*":
+  "atom-package-deps":
+    ignored: [
+      "prettier-atom"
+    ]
+  core:
+    customFileTypes:
+      "source.ini": [
+        ".hgrc"
+        ".buckconfig"
+        ".flowconfig"
+      ]
+      "source.json": [
+        "BUCK.autodeps"
+      ]
+      "source.python": [
+        "BUCK"
+      ]
+    telemetryConsent: "no"
+    themes: [
+      "one-dark-ui"
+      "atom-ide-dark-syntax"
+    ]
+  docblockr:
+    extend_double_slash: false
+  editor:
+    fontSize: 10
+    preferredLineLength: 120
+    showIndentGuide: true
+    softWrap: true
+    softWrapAtPreferredLineLength: true
+  "exception-reporting":
+    userId: "2c0a0d94-3865-4645-a785-a69285e94497"
+  "file-icons":
+    coloured: false
+    onChanges: true
+  "language-babel":
+    autoIndentJSX: true
+    createTranspiledCode: true
+  "linter-eslint":
+    autofix:
+      fixOnSave: true
+  "linter-ui-default":
+    panelHeight: 265
+  nuclide:
+    "atom-ide-diagnostics-ui": {}
+    "nuclide-flow":
+      warnOnNotInstalled: false
+    use:
+      "atom-ide-diagnostics-ui": "always"
+  "prettier-atom":
+    formatOnSaveOptions:
+      enabled: true
+      isDisabledIfNotInPackageJson: true
+      showInStatusBar: true
+    prettierOptions:
+      singleQuote: true
+    useEslint: true
+    useStylelint: true
+  "tool-bar":
+    iconSize: "12px"
+    position: "Left"
+  welcome:
+    showOnStartup: false
