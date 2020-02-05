@@ -48,6 +48,7 @@ configure() {
 case "$1" in
   "help" | "-h")      echo "$__help";;
   "configure")        configure;;
+  "edit")             atom "${0%/*}";;
   "editor-backup")    editor-packages-backup;;
   "ssh-keys-restore") ssh-keys-restore;;
   *)                  echo "$__help";;
