@@ -8,6 +8,7 @@ source "${0%/*}/scripts/environment-configure.sh"
 source "${0%/*}/scripts/apps-install.sh"
 source "${0%/*}/scripts/editor-packages-backup.sh"
 source "${0%/*}/scripts/editor-configure.sh"
+source "${0%/*}/scripts/macos-configure.sh"
 
 __help="
 Dotfiles — A manager
@@ -16,6 +17,7 @@ Usage: dotfiles <command>
 where <command> is one of:
   help      -   Displays this banner
   configure -   Runs the entire configuration script on the host machine
+  editor-backup -   Backs up all atom packages to atom-packages.txt
 "
 
 __configure="
@@ -27,11 +29,18 @@ This command will go through a series of steps to configure the host machine's p
 configure() {
   echo "$__configure"
 
-  configuration-report "[1/5] 🔃 Git configuration" git-configure
-  configuration-report "[2/5] 🔗 Symlink dotfiles" dotfiles-symlink
-  configuration-report "[3/5] 🏗 Environment configuration" environment-configure
-  configuration-report "[4/5] 📲 Apps installation" apps-install
-  configuration-report "[5/5] ⌨️ Editor configuration" editor-configure
+  configuration-report "[1/6] 🔃 Git configuration" git-configure
+  configuration-report "[2/6] 🔗 Symlink dotfiles" dotfiles-symlink
+  configuration-report "[3/6] 🏗 Environment configuration" environment-configure
+  configuration-report "[4/6] 📲 Apps installation" apps-install
+  configuration-report "[5/6] ⌨️ Editor configuration" editor-configure
+  configuration-report "[6/6] ⚙️ macOS preferences" macos-configure
+
+  if ! confirm "🆗🎉  Do you want to restart now?"; then
+    return 0
+  fi
+
+  sudo shutdown -r now
 }
 
 case "$1" in
