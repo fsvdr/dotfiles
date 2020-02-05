@@ -9,15 +9,17 @@ source "${0%/*}/scripts/apps-install.sh"
 source "${0%/*}/scripts/editor-packages-backup.sh"
 source "${0%/*}/scripts/editor-configure.sh"
 source "${0%/*}/scripts/macos-configure.sh"
+source "${0%/*}/scripts/ssh-keys-restore.sh"
 
 __help="
 Dotfiles — A manager
 Usage: dotfiles <command>
 
 where <command> is one of:
-  help      -   Displays this banner
-  configure -   Runs the entire configuration script on the host machine
-  editor-backup -   Backs up all atom packages to atom-packages.txt
+  help              -   Displays this banner
+  configure         -   Runs the entire configuration script on the host machine
+  editor-backup     -   Backs up all atom packages to atom-packages.txt
+  ssh-keys-restore  -   Sets up SSH keys permissions and adds primary identity to Keychain
 "
 
 __configure="
@@ -44,8 +46,9 @@ configure() {
 }
 
 case "$1" in
-  "help" | "-h")    echo "$__help";;
-  "configure")      configure;;
-  "editor-backup")  editor-packages-backup;;
-  *)                echo "$__help";;
+  "help" | "-h")      echo "$__help";;
+  "configure")        configure;;
+  "editor-backup")    editor-packages-backup;;
+  "ssh-keys-restore") ssh-keys-restore;;
+  *)                  echo "$__help";;
 esac
