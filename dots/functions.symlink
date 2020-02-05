@@ -68,3 +68,16 @@ gae() {
 
   return 0
 }
+
+: '
+  Creates an encrypted disk image from the provided directory
+
+  @param  title  [$1] The title for the disk image
+  @param  src    [$2] Source directory to encrypt
+  @param  dst    [$3] Destination of the encrypted disk image
+'
+encrypt-disk-image() {
+  if hdiutil create $3 -encryption -volname $1 -srcfolder $2; then
+    echo -ne "\n  🔐  Successfully encrypted $1\n"
+  fi
+}
