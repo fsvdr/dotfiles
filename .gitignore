@@ -1,12 +1,12 @@
 .DS_Store
 
-atom.symlink/.apm
-atom.symlink/.node-gyp
+.apm
+.node-gyp
 .atom-socket-secret*
-atom.symlink/blob-store
-atom.symlink/compile-cache
-atom.symlink/packages
-atom.symlink/storage
-atom.symlink/recovery
+blob-store
+compile-cache
+packages
+storage
+recovery
 
 dots/gitconfig_local.symlink
