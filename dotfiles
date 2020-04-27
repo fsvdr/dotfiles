@@ -35,7 +35,7 @@ configure() {
   configuration-report "[2/6] 🔗 Symlink dotfiles" dotfiles-symlink
   configuration-report "[3/6] 🏗 Environment configuration" environment-configure
   configuration-report "[4/6] 📲 Apps installation" apps-install
-  configuration-report "[5/6] ⌨️ Editor configuration" editor-configure
+  configuration-report "[5/6] ⌨️  Editor configuration" vscode-configure
   configuration-report "[6/6] ⚙️ macOS preferences" macos-configure
 
   if ! confirm "🆗🎉  Do you want to restart now?"; then
@@ -48,8 +48,8 @@ configure() {
 case "$1" in
   "help" | "-h")      echo "$__help";;
   "configure")        configure;;
-  "edit")             atom "${0%/*}";;
-  "editor-backup")    editor-packages-backup;;
+  "edit")             $EDITOR "${0%/*}";;
+  "editor-backup")    configuration-report " ⌨️   Editor backup" vscode-backup;;
   "ssh-keys-restore") ssh-keys-restore;;
   *)                  echo "$__help";;
 esac
