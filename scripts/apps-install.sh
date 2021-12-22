@@ -6,7 +6,6 @@
 apps-install() {
   local mas_apps=(
     824171161  # Affinity Designer
-    1091189122 # Bear
     1451177988 # Carbonize
     408981434  # iMovie
     525742250  # JPEGmini
@@ -16,11 +15,13 @@ apps-install() {
     425424353  # The Unarchiver
     585829637  # Todoist
     497799835  # Xcode
+    1339170533 # CleanMyMac
+    1487937127 # Craft
+    1444383602 # GoodNotes
   )
 
   local cask_apps=(
     # Dev
-    atom
     android-studio
     fork
     insomnia
@@ -30,12 +31,11 @@ apps-install() {
     vagrant
     virtualbox
     visual-studio-code
-    xampp-vm
+    sf-symbols
+    fig
 
     # Design
-    craftmanager
     rightfont
-    sketch
     figma
 
     # Entretainment
@@ -50,7 +50,8 @@ apps-install() {
     imageoptim
     keybase
     signal
-    tunnelblick
+    zoom
+    protonvpn
   )
 
   type mas &>/dev/null
