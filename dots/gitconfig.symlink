@@ -13,8 +13,9 @@
 
 
 [core]
-	editor 	= atom --wait
+	editor 	= code --wait
 	excludesfile = ~/.gitignore_global
+	ignorecase = false
 
 
 [pretty]
@@ -33,3 +34,5 @@
 	clean = git-lfs clean -- %f
 	smudge = git-lfs smudge -- %f
 	process = git-lfs filter-process
+[init]
+	defaultBranch = main
