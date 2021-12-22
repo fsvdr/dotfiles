@@ -66,6 +66,6 @@ apps-install() {
 
   echo -ne "\n  ⏬ Installing Cask apps\n"
   for app in "${cask_apps[@]}"; do
-    brew cask install "$app"
+    brew install "$app"
   done
 }
