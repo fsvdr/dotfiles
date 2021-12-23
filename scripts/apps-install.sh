@@ -33,6 +33,7 @@ apps-install() {
     visual-studio-code
     sf-symbols
     fig
+    ngrok
 
     # Design
     rightfont
