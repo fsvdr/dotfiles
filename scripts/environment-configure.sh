@@ -20,7 +20,7 @@ environment-configure() {
   fi
 
   echo -ne "\n  ⏬ Installing Homebrew dependencies\n"
-  brew install {"git-lfs","mas","php","python3", "httpie", "youtube-dl"}
+  brew install {"git-lfs","mas","php","python3","httpie","youtube-dl"}
 
   return 0
 }
