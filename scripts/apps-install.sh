@@ -18,6 +18,7 @@ apps-install() {
     1339170533 # CleanMyMac
     1487937127 # Craft
     1444383602 # GoodNotes
+    1502839586 # Hand Mirror
   )
 
   local cask_apps=(
