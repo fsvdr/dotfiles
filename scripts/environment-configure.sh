@@ -22,5 +22,9 @@ environment-configure() {
   echo -ne "\n  ⏬ Installing Homebrew dependencies\n"
   brew install {"git-lfs","mas","php","python3","httpie","youtube-dl"}
 
+  echo -ne "\n ⏬ Installing fonts\n"
+  brew tap "homebrew/cask-fonts"
+  brew install font-fira-code
+
   return 0
 }
