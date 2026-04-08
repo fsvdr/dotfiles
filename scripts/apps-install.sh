@@ -6,8 +6,6 @@
 apps-install() {
   local mas_apps=(
     824171161  # Affinity Designer
-    1451177988 # Carbonize
-    408981434  # iMovie
     525742250  # JPEGmini
     441258766  # Magnet
     803453959  # Slack
@@ -17,30 +15,25 @@ apps-install() {
     497799835  # Xcode
     1339170533 # CleanMyMac
     1487937127 # Craft
-    1444383602 # GoodNotes
     1502839586 # Hand Mirror
   )
 
   local cask_apps=(
     # Dev
-    android-studio
     fork
     insomnia
     mongodb-compass
     postgres
     tableplus
-    vagrant
-    virtualbox
-    visual-studio-code
     sf-symbols
-    fig
     ngrok
+    zed
 
     # Design
     rightfont
     figma
 
-    # Entretainment
+    # Entertainment
     pocket-casts
     spotify
 

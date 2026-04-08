@@ -13,7 +13,7 @@
 
 
 [core]
-	editor 	= code --wait
+	editor 	= zed --wait
 	excludesfile = ~/.gitignore_global
 	ignorecase = false
 

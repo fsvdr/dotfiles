@@ -1,12 +1,3 @@
 .DS_Store
 
-.apm
-.node-gyp
-.atom-socket-secret*
-blob-store
-compile-cache
-packages
-storage
-recovery
-
 dots/gitconfig_local.symlink

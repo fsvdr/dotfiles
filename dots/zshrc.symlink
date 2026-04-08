@@ -19,10 +19,6 @@ plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
 # Load Oh My Zsh
 source $ZSH/oh-my-zsh.sh
 
-# --- Environment ---
-export EDITOR="code"
-export ANDROID_SDK="/Users/fsvdr/Library/Android/sdk"
-
 # --- Source shared configs ---
 [[ -f "$HOME/.aliases" ]]   && source "$HOME/.aliases"
 [[ -f "$HOME/.functions" ]] && source "$HOME/.functions"
@@ -33,28 +29,12 @@ export ANDROID_SDK="/Users/fsvdr/Library/Android/sdk"
 # Homebrew
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
-# NVM
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
-
-# Volta
-export VOLTA_HOME="$HOME/.volta"
-export PATH="$VOLTA_HOME/bin:$PATH"
-
-# Ruby
-export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
-
-# Python 3.8
-PATH="/Library/Frameworks/Python.framework/Versions/3.8/bin:${PATH}"
-export PATH
+# mise
+eval "$(mise activate zsh)"
 
 # Bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-# Windsurf
-export PATH="/Users/fsvdr/.codeium/windsurf/bin:$PATH"
-
-# PATH deduplication (zsh-native, replaces awk hack)
+# PATH deduplication (zsh-native)
 typeset -U PATH

@@ -6,7 +6,6 @@ source "${0%/*}/scripts/git-configure.sh"
 source "${0%/*}/scripts/dotfiles-symlink.sh"
 source "${0%/*}/scripts/environment-configure.sh"
 source "${0%/*}/scripts/apps-install.sh"
-source "${0%/*}/scripts/editor-packages-backup.sh"
 source "${0%/*}/scripts/editor-configure.sh"
 source "${0%/*}/scripts/macos-configure.sh"
 source "${0%/*}/scripts/ssh-keys-restore.sh"
@@ -18,7 +17,7 @@ Usage: dotfiles <command>
 where <command> is one of:
   help              -   Displays this banner
   configure         -   Runs the entire configuration script on the host machine
-  editor-backup     -   Backs up all atom packages to atom-packages.txt
+  editor-backup     -   Backs up Zed configuration to dotfiles repo
   ssh-keys-restore  -   Sets up SSH keys permissions and adds primary identity to Keychain
 "
 
@@ -35,7 +34,7 @@ configure() {
   configuration-report "[2/6] 🔗 Symlink dotfiles" dotfiles-symlink
   configuration-report "[3/6] 🏗 Environment configuration" environment-configure
   configuration-report "[4/6] 📲 Apps installation" apps-install
-  configuration-report "[5/6] ⌨️  Editor configuration" vscode-configure
+  configuration-report "[5/6] ⌨️  Editor configuration" zed-configure
   configuration-report "[6/6] ⚙️ macOS preferences" macos-configure
 
   if ! confirm "🆗🎉  Do you want to restart now?"; then
@@ -49,7 +48,7 @@ case "$1" in
   "help" | "-h")      echo "$__help";;
   "configure")        configure;;
   "edit")             $EDITOR "${0%/*}";;
-  "editor-backup")    configuration-report " ⌨️   Editor backup" vscode-backup;;
+  "editor-backup")    configuration-report " ⌨️   Editor backup" zed-backup;;
   "ssh-keys-restore") ssh-keys-restore;;
   *)                  echo "$__help";;
 esac
