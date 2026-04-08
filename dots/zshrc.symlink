@@ -1,0 +1,60 @@
+###############################################################################
+# ZSH CONFIGURATION                                                          #
+###############################################################################
+# This is it folks, welcome to dotland (zsh edition)
+
+# Path to Oh My Zsh
+export ZSH="$HOME/.oh-my-zsh"
+
+# Symlink custom theme into Oh My Zsh if not already there
+[[ ! -f "$ZSH/custom/themes/fsvdr.zsh-theme" ]] && \
+  ln -sf "$HOME/.dotfiles/dots/fsvdr.zsh-theme" "$ZSH/custom/themes/fsvdr.zsh-theme"
+
+# Theme
+ZSH_THEME="fsvdr"
+
+# Plugins
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting)
+
+# Load Oh My Zsh
+source $ZSH/oh-my-zsh.sh
+
+# --- Environment ---
+export EDITOR="code"
+export ANDROID_SDK="/Users/fsvdr/Library/Android/sdk"
+
+# --- Source shared configs ---
+[[ -f "$HOME/.aliases" ]]   && source "$HOME/.aliases"
+[[ -f "$HOME/.functions" ]] && source "$HOME/.functions"
+[[ -f "$HOME/.path" ]]      && source "$HOME/.path"
+
+# --- Tool initialization ---
+
+# Homebrew
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# NVM
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+# Volta
+export VOLTA_HOME="$HOME/.volta"
+export PATH="$VOLTA_HOME/bin:$PATH"
+
+# Ruby
+export PATH="/opt/homebrew/opt/ruby/bin:$PATH"
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+# Python 3.8
+PATH="/Library/Frameworks/Python.framework/Versions/3.8/bin:${PATH}"
+export PATH
+
+# Bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+
+# Windsurf
+export PATH="/Users/fsvdr/.codeium/windsurf/bin:$PATH"
+
+# PATH deduplication (zsh-native, replaces awk hack)
+typeset -U PATH

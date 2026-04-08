@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# DEPRECATED: Bash prompt — zsh prompt is now in dots/fsvdr.zsh-theme.
 ###############################################################################
 # PROMPT PERSONALIZATION                                                      #
 ###############################################################################
@@ -11,7 +12,7 @@ USERROLES=(
 
 # Get user role prompt for the current directory
 user-prompt() {
-  local USERROLE=" 🚀  $(whoami)"
+  local USERROLE=" $(whoami)"
 
   local GITAUTHOREMAIL=$(gae)
   if [[ -n $GITAUTHOREMAIL ]]; then
