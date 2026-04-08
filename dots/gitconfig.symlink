@@ -36,3 +36,8 @@
 	process = git-lfs filter-process
 [init]
 	defaultBranch = main
+[user]
+	name = Luis Fernando Saavedra Meza
+	email = fernando@fsvdr.me
+[credential]
+	helper = osxkeychain

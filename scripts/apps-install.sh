@@ -54,6 +54,7 @@ apps-install() {
     signal
     zoom
     protonvpn
+    element
   )
 
   type mas &>/dev/null
