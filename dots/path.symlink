@@ -3,6 +3,6 @@
 # PATH                                                                        #
 ###############################################################################
 
-PATH="~/.dotfiles:$PATH"
+PATH="$HOME/.dotfiles/bin:$HOME/.dotfiles:$PATH"
 
 export PATH

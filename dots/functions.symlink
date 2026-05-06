@@ -81,3 +81,4 @@ encrypt-disk-image() {
     echo -ne "\n  🔐  Successfully encrypted $1\n"
   fi
 }
+

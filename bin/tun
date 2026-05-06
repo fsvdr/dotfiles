@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# Run a Cloudflare tunnel by name, fetching the connector token on demand
+# via cert.pem so no token is ever stored on disk or in shell history.
+#
+# Usage: tun <tunnel-name>
+set -euo pipefail
+
+name="${1:-}"
+if [[ -z "$name" ]]; then
+  echo "usage: tun <tunnel-name>" >&2
+  exit 1
+fi
+
+token="$(cloudflared tunnel token "$name")"
+exec cloudflared tunnel run --token "$token"
