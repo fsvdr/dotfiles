@@ -1,0 +1,23 @@
+# pnpm 11+ global config. On macOS this lives at ~/Library/Preferences/pnpm/config.yaml
+# (Linux uses ~/.config/pnpm/config.yaml). As of v11, pnpm only reads auth/registry
+# settings from .npmrc — everything functional belongs here.
+
+# Block lifecycle scripts. Use per-project `onlyBuiltDependencies` to allowlist
+# packages that genuinely need a build step (esbuild, sharp, better-sqlite3, ...).
+ignoreScripts: true
+
+# Only install package versions at least this many minutes old. 10080 = 7 days.
+# v11 defaults to 1440 (1 day) — tightening to match the bun policy.
+minimumReleaseAge: 10080
+
+# Refuse transitive deps that resolve to git repos or arbitrary tarball URLs.
+blockExoticSubdeps: true
+
+# Pin exact versions when adding packages.
+saveExact: true
+
+# Refuse to run scripts if the installed deps don't match the lockfile.
+verifyDepsBeforeRun: error
+
+# Note: strictStorePkgContentCheck is project-level only — add it to each
+# project's pnpm-workspace.yaml if you want store tampering checks.

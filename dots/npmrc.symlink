@@ -1,0 +1,21 @@
+# Block lifecycle scripts (postinstall, etc.) — the main supply-chain vector.
+# Native modules that need a build step will require per-project overrides.
+ignore-scripts=true
+
+# Pin exact versions on `npm install <pkg>`; no leading ^ or ~.
+save-exact=true
+
+# Refuse to install if the package's engines field doesn't match Node/npm.
+engine-strict=true
+
+# Fail `npm install` if the audit report finds vulnerabilities at this level or higher.
+audit-level=high
+
+# Quiet noise.
+fund=false
+
+# Note: pnpm 11+ ignores everything here except auth/registry settings.
+# pnpm-specific hardening lives in ~/.config/pnpm/config.yaml.
+
+# Scoped registries (uncomment as needed):
+#@chordcommerce:registry=https://npm.pkg.github.com

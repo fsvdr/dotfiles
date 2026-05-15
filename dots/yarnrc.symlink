@@ -1,0 +1,7 @@
+# Yarn Classic (v1) global config. Kept for legacy projects; new work should use
+# Berry or another package manager.
+
+ignore-scripts true
+save-exact true
+--install.frozen-lockfile true
+--*.audit true

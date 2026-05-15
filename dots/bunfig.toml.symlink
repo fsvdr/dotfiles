@@ -1,0 +1,6 @@
+[install]
+frozenLockfile = true
+ignoreScripts = true
+exact = true
+# 7 days in seconds — only install package versions at least this old
+minimumReleaseAge = 604800

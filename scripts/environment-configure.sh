@@ -40,6 +40,13 @@ environment-configure() {
     brew install mise
   fi
 
+  # JavaScript runtimes & package managers via mise. node gives us npm.
+  # yarn is installed directly because corepack is no longer bundled with Node 25+.
+  # pnpm uses the npm: backend — mise's default (aqua) plugin currently mis-names
+  # the darwin-arm64 release asset, so installs fail. Revisit when aqua is fixed.
+  echo -ne "\n  ⏬ Installing Node, pnpm, yarn, bun via mise\n"
+  mise use --global node@latest npm:pnpm@latest yarn@latest bun@latest
+
   # Fonts
   echo -ne "\n  ⏬ Installing fonts\n"
   brew install font-fira-code

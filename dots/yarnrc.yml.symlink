@@ -1,0 +1,18 @@
+# Yarn Berry (v2+) global config.
+
+# Block lifecycle scripts. Per-project allowlist via `enableScripts: true` plus
+# `supportedArchitectures` / `dependenciesMeta.<pkg>.built: true`.
+enableScripts: false
+
+# Treat the lockfile as authoritative — `yarn install` fails if it would change.
+enableImmutableInstalls: true
+
+# Pin exact versions when adding packages.
+defaultSemverRangePrefix: ""
+
+# Verify checksums of every package against the lockfile.
+checksumBehavior: throw
+
+# Only install package versions at least this old. Matches bun (604800s) and
+# pnpm (10080 min). Yarn's own default is "3d".
+npmMinimalAgeGate: "7d"
