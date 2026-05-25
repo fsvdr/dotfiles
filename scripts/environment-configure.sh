@@ -47,6 +47,11 @@ environment-configure() {
   echo -ne "\n  ⏬ Installing Node, pnpm, yarn, bun via mise\n"
   mise use --global node@latest npm:pnpm@latest yarn@latest bun@latest
 
+  # Global CLI tools installed via bun. ~/.bun/bin is added to PATH in dots/path.symlink.
+  # SSH URL is used because the repo is private; bun's github: shorthand hits the public API.
+  echo -ne "\n  ⏬ Installing harvy CLI via bun\n"
+  bun install -g git+ssh://git@github.com/fsvdr/harvy-cli.git
+
   # Fonts
   echo -ne "\n  ⏬ Installing fonts\n"
   brew install font-fira-code
