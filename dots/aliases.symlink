@@ -28,6 +28,10 @@ alias local-ip="ipconfig getifaddr en0"
 # Lock the screen
 alias afk="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 
+# Keep the Mac awake with the lid closed while on AC power (for mosh/remote sessions)
+alias stay-awake="sudo pmset -c disablesleep 1"
+alias allow-sleep="sudo pmset -c disablesleep 0"
+
 # Exclude macOS specific files in ZIP archives
 # [$1] - target
 # [$2] - source
