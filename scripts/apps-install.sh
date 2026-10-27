@@ -5,49 +5,46 @@
 '
 apps-install() {
   local mas_apps=(
-    824171161  # Affinity Designer
-    525742250  # JPEGmini
     441258766  # Magnet
     803453959  # Slack
     747648890  # Telegram
     425424353  # The Unarchiver
-    585829637  # Todoist
     497799835  # Xcode
-    1339170533 # CleanMyMac
-    1487937127 # Craft
     1502839586 # Hand Mirror
   )
 
   local cask_apps=(
     # Dev
+    claude
     fork
     insomnia
-    mongodb-compass
     postgres
+    t3-code
     tableplus
+    tailscale-app
     sf-symbols
-    ngrok
+    warp
+    whatsapp
     zed
 
     # Design
-    rightfont
     figma
 
     # Entertainment
-    pocket-casts
     spotify
 
     # Everything else
     1password
+    bambu-studio
     firefox
     firefox-developer-edition
     google-chrome
     imageoptim
-    keybase
+    mole-app
+    protonvpn
+    raycast
     signal
     zoom
-    protonvpn
-    element
   )
 
   type mas &>/dev/null
