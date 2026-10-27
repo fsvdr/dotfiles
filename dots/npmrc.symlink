@@ -1,6 +1,6 @@
 # Block lifecycle scripts (postinstall, etc.) — the main supply-chain vector.
 # Native modules that need a build step will require per-project overrides.
-ignore-scripts=true
+# ignore-scripts=true
 
 # Pin exact versions on `npm install <pkg>`; no leading ^ or ~.
 save-exact=true

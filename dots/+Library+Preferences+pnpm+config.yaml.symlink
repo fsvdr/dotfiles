@@ -2,10 +2,6 @@
 # (Linux uses ~/.config/pnpm/config.yaml). As of v11, pnpm only reads auth/registry
 # settings from .npmrc — everything functional belongs here.
 
-# Block lifecycle scripts. Use per-project `onlyBuiltDependencies` to allowlist
-# packages that genuinely need a build step (esbuild, sharp, better-sqlite3, ...).
-ignoreScripts: true
-
 # Only install package versions at least this many minutes old. 10080 = 7 days.
 # v11 defaults to 1440 (1 day) — tightening to match the bun policy.
 minimumReleaseAge: 10080

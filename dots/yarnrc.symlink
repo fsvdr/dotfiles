@@ -3,5 +3,5 @@
 
 ignore-scripts true
 save-exact true
---install.frozen-lockfile true
+# --install.frozen-lockfile true
 --*.audit true

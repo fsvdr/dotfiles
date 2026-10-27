@@ -1,5 +1,6 @@
 [install]
-frozenLockfile = true
+# Note: bun auto-enables frozen lockfile when CI=true, so we don't set it
+# globally — it would block `bun add <pkg>` in local dev.
 ignoreScripts = true
 exact = true
 # 7 days in seconds — only install package versions at least this old

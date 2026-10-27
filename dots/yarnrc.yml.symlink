@@ -5,7 +5,7 @@
 enableScripts: false
 
 # Treat the lockfile as authoritative — `yarn install` fails if it would change.
-enableImmutableInstalls: true
+# enableImmutableInstalls: true
 
 # Pin exact versions when adding packages.
 defaultSemverRangePrefix: ""
