@@ -40,3 +40,4 @@ type mise &>/dev/null && eval "$(mise activate zsh)"
 
 # PATH deduplication (zsh-native)
 typeset -U PATH
+export PATH="$HOME/.local/bin:$PATH"

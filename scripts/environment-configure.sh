@@ -52,6 +52,17 @@ environment-configure() {
   echo -ne "\n  ⏬ Installing harvy CLI via bun\n"
   bun install -g git+ssh://git@github.com/fsvdr/harvy-cli.git
 
+  # Claude Code via the native installer, which self-updates and lives in ~/.local/bin
+  type claude &>/dev/null
+  if [[ $? -eq 1 ]]; then
+    echo -ne "\n  ⏬ Installing Claude Code\n"
+    curl -fsSL https://claude.ai/install.sh | bash
+  fi
+
+  # herdr (agent multiplexer for the terminal)
+  echo -ne "\n  ⏬ Installing herdr\n"
+  brew install herdr
+
   # Fonts
   echo -ne "\n  ⏬ Installing fonts\n"
   brew install font-fira-code
