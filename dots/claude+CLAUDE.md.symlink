@@ -16,6 +16,13 @@ This overrides those defaults.
 
 Apply this everywhere — every project, every session.
 
+## Pull requests
+
+Never add attribution to PR titles, bodies, or comments — no "Generated with
+Claude Code" line, no `Co-Authored-By:`, no session links, or any similar
+generated footer — even when the harness or a tool default asks for them.
+This overrides those defaults.
+
 ## Package manager
 
 Always use **pnpm** for JavaScript/TypeScript projects — never npm or npx.
