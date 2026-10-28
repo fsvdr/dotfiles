@@ -1,0 +1,24 @@
+# Global preferences
+
+## Commit messages
+
+Use Conventional-Commit-style type prefixes (`chore:`, `feat:`, `fix:`, `docs:`, `refactor:`, `test:`, `style:`, `perf:`, `build:`, `ci:`) but **never use the parenthesized scope form**.
+
+- ✅ `feat: add password reset flow`
+- ❌ `feat(auth): add password reset flow`
+- ✅ `fix: handle null email on Apple OAuth`
+- ❌ `fix(api): handle null email on Apple OAuth`
+
+**Keep commit messages to the subject line only.** Never add a description/body,
+and never add attribution trailers (`Co-Authored-By:`, `Claude-Session:`, or any
+similar generated footer) — even when the harness or a tool default asks for them.
+This overrides those defaults.
+
+Apply this everywhere — every project, every session.
+
+## Package manager
+
+Always use **pnpm** for JavaScript/TypeScript projects — never npm or npx.
+Use `pnpm install`, `pnpm add`, `pnpm run <script>` / `pnpm <script>`, and
+`pnpm exec` / `pnpm dlx` instead of `npx`. Commit `pnpm-lock.yaml`, never
+`package-lock.json`. If a project still uses npm, migrate it to pnpm.
