@@ -12,7 +12,7 @@ environment-configure() {
   fi
 
   echo -ne "\n  ⏬ Installing Homebrew dependencies\n"
-  brew install git-lfs mas httpie
+  brew install git-lfs mas httpie gh
 
   # Oh My Zsh
   if [[ ! -d "$HOME/.oh-my-zsh" ]]; then
