@@ -1,0 +1,48 @@
+// Zed settings
+//
+// This file lives in ~/.dotfiles/dots/zed and is symlinked to
+// ~/.config/zed/settings.json by `zed-configure`, so edits made in Zed land
+// straight in the dotfiles repo.
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+{
+  "auto_install_extensions": {
+    "astro": true,
+    "biome": true,
+    "catppuccin": true,
+    "catppuccin-icons": true,
+    "dockerfile": true,
+    "graphql": true,
+    "html": true,
+    "liquid": true,
+    "prisma": true,
+    "sql": true,
+    "toml": true
+  },
+  "edit_predictions": {
+    "provider": "copilot"
+  },
+  "project_panel": {
+    "dock": "left"
+  },
+  "terminal": {
+    "dock": "right"
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "icon_theme": {
+    "mode": "dark",
+    "light": "Zed (Default)",
+    "dark": "Catppuccin Mocha"
+  },
+  "ui_font_size": 12.0,
+  "buffer_font_size": 10.0,
+  "theme": {
+    "mode": "dark",
+    "light": "One Light",
+    "dark": "Catppuccin Mocha"
+  }
+}

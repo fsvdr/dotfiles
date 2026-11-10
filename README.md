@@ -38,7 +38,7 @@ Usage: dotfiles <command>
 where <command> is one of:
   help              -   Displays this banner
   configure         -   Runs the entire configuration script on the host machine
-  editor-backup     -   Backs up all atom packages to atom-packages.txt
+  editor-backup     -   Lists installed Zed extensions missing from settings.json
   ssh-keys-restore  -   Sets up SSH keys permissions and adds primary identity to Keychain
 ```
 

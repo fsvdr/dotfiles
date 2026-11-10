@@ -1,67 +1,75 @@
 #!/usr/bin/env bash
 
 : '
-  Symlinks Zed configuration from the dotfiles repo and installs extensions
+  Symlinks Zed settings (and keymap, when tracked) from the dotfiles repo into
+  ~/.config/zed. Extensions are installed by Zed itself on launch from the
+  `auto_install_extensions` setting in settings.json.
 '
 zed-configure() {
   local zed_config_dir="$HOME/.config/zed"
-  local dotfiles_zed_dir="${0%/*}/../dots/zed.symlink"
+  local dotfiles_zed_dir="$HOME/.dotfiles/dots/zed"
+
+  if [[ ! -f "$dotfiles_zed_dir/settings.json" ]]; then
+    echo -ne "  ⚠️  $dotfiles_zed_dir/settings.json not found\n"
+    return 1
+  fi
 
   mkdir -p "$zed_config_dir"
 
-  if [[ -f "$dotfiles_zed_dir/settings.json" ]]; then
-    ln -sf "$dotfiles_zed_dir/settings.json" "$zed_config_dir/settings.json"
-    echo -ne "  🔗 Linked Zed settings.json\n"
-  fi
+  local file src dst
+  for file in settings.json keymap.json; do
+    src="$dotfiles_zed_dir/$file"
+    dst="$zed_config_dir/$file"
+    [[ -f "$src" ]] || continue
 
-  if [[ -f "$dotfiles_zed_dir/keymap.json" ]]; then
-    ln -sf "$dotfiles_zed_dir/keymap.json" "$zed_config_dir/keymap.json"
-    echo -ne "  🔗 Linked Zed keymap.json\n"
-  fi
-
-  # Install extensions via Zed CLI
-  if [[ -f "$dotfiles_zed_dir/extensions.json" ]]; then
-    type zed &>/dev/null
-    if [[ $? -eq 0 ]]; then
-      echo -ne "  ⏬ Installing Zed extensions\n"
-      for ext in $(cat "$dotfiles_zed_dir/extensions.json" | tr -d '[]",' | xargs); do
-        zed --install-extension "$ext"
-      done
-    else
-      echo -ne "  ⚠️  Zed CLI not found — install extensions manually from extensions.json\n"
+    # Keep whatever Zed (or a previous setup) left there before replacing it
+    if [[ -e "$dst" && ! -L "$dst" ]]; then
+      mv "$dst" "$dst.bak"
+      echo -ne "  💾 Backed up existing $file to $file.bak\n"
     fi
+
+    ln -sfn "$src" "$dst" || return 1
+    echo -ne "  🔗 Linked Zed $file\n"
+  done
+
+  # Leftover from when the zed folder was named zed.symlink
+  if [[ -L "$HOME/.zed" ]]; then
+    rm "$HOME/.zed"
+    echo -ne "  🧹 Removed stale ~/.zed link\n"
   fi
 }
 
 : '
-  Backs up current Zed configuration and extension list into the dotfiles repo
+  Settings and keymap are symlinked, so they never need copying back. Lists the
+  extensions installed in Zed that are missing from `auto_install_extensions`,
+  so they can be added to settings.json.
 '
 zed-backup() {
-  local zed_config_dir="$HOME/.config/zed"
   local zed_extensions_index="$HOME/Library/Application Support/Zed/extensions/index.json"
-  local dotfiles_zed_dir="${0%/*}/../dots/zed.symlink"
+  local settings="$HOME/.dotfiles/dots/zed/settings.json"
 
-  mkdir -p "$dotfiles_zed_dir"
-
-  if [[ -f "$zed_config_dir/settings.json" ]]; then
-    cp "$zed_config_dir/settings.json" "$dotfiles_zed_dir/settings.json"
-    echo -ne "  💾 Backed up Zed settings.json\n"
+  if [[ ! -f "$zed_extensions_index" ]]; then
+    echo -ne "  ⚠️  No Zed extensions index found at $zed_extensions_index\n"
+    return 1
   fi
 
-  if [[ -f "$zed_config_dir/keymap.json" ]]; then
-    cp "$zed_config_dir/keymap.json" "$dotfiles_zed_dir/keymap.json"
-    echo -ne "  💾 Backed up Zed keymap.json\n"
-  fi
+  python3 - "$zed_extensions_index" "$settings" <<'PY'
+import json, re, sys
 
-  # Extract extension IDs from Zed's index.json
-  if [[ -f "$zed_extensions_index" ]]; then
-    python3 -c "
-import json, sys
 with open(sys.argv[1]) as f:
-    data = json.load(f)
-ext_ids = sorted(data.get('extensions', {}).keys())
-print(json.dumps(ext_ids, indent=2))
-" "$zed_extensions_index" > "$dotfiles_zed_dir/extensions.json"
-    echo -ne "  💾 Backed up Zed extensions list\n"
-  fi
+    installed = set(json.load(f).get("extensions", {}))
+
+# settings.json is JSONC: grab the auto_install_extensions block and its keys
+with open(sys.argv[2]) as f:
+    block = re.search(r'"auto_install_extensions"\s*:\s*\{([^}]*)\}', f.read())
+tracked = set(re.findall(r'"([^"]+)"\s*:', block.group(1))) if block else set()
+
+missing = sorted(installed - tracked)
+if missing:
+    print("  ➕ Installed but not in auto_install_extensions:")
+    for ext in missing:
+        print(f'     "{ext}": true,')
+else:
+    print("  👌 Every installed extension is in auto_install_extensions")
+PY
 }
