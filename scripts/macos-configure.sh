@@ -67,6 +67,12 @@ macos-configure() {
   defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadCornerSecondaryClick -int 0
   defaults write com.apple.driver.AppleBluetoothMultitouch.trackpad TrackpadRightClick -bool true
 
+  # Free Ctrl+Space for apps (Zed's Show Completions) by disabling the
+  # "Select the previous input source" shortcut. Switch input sources with the
+  # Globe/fn key instead.
+  defaults write com.apple.symbolichotkeys AppleSymbolicHotKeys -dict-add 60 '<dict><key>enabled</key><false/><key>value</key><dict><key>type</key><string>standard</string><key>parameters</key><array><integer>32</integer><integer>49</integer><integer>262144</integer></array></dict></dict>'
+  /System/Library/PrivateFrameworks/SystemAdministration.framework/Resources/activateSettings -u 2> /dev/null
+
   # Stop iTunes from responding to the keyboard media keys
   launchctl unload -w /System/Library/LaunchAgents/com.apple.rcd.plist 2> /dev/null
 
