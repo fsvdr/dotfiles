@@ -9,6 +9,7 @@ source "${0%/*}/scripts/apps-install.sh"
 source "${0%/*}/scripts/editor-configure.sh"
 source "${0%/*}/scripts/macos-configure.sh"
 source "${0%/*}/scripts/ssh-keys-restore.sh"
+source "${0%/*}/scripts/dotfiles-list.sh"
 
 __help="
 Dotfiles — A manager
@@ -18,6 +19,7 @@ where <command> is one of:
   help              -   Displays this banner
   configure         -   Runs the entire configuration script on the host machine
   editor-backup     -   Lists installed Zed extensions missing from settings.json
+  list              -   Lists aliases, functions and bin commands: list [aliases|functions|bin] [term]
   ssh-keys-restore  -   Sets up SSH keys permissions and adds primary identity to Keychain
 "
 
@@ -49,6 +51,7 @@ case "$1" in
   "configure")        configure;;
   "edit")             $EDITOR "${0%/*}";;
   "editor-backup")    configuration-report " ⌨️   Editor backup" zed-backup;;
+  "list")             shift; dotfiles-list "$@";;
   "ssh-keys-restore") ssh-keys-restore;;
   *)                  echo "$__help";;
 esac
