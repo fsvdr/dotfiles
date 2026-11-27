@@ -29,3 +29,12 @@ Always use **pnpm** for JavaScript/TypeScript projects — never npm or npx.
 Use `pnpm install`, `pnpm add`, `pnpm run <script>` / `pnpm <script>`, and
 `pnpm exec` / `pnpm dlx` instead of `npx`. Commit `pnpm-lock.yaml`, never
 `package-lock.json`. If a project still uses npm, migrate it to pnpm.
+
+## Simulators and devices
+
+Whenever you open a simulator or emulator in T3 Code's Device panel
+(`device_open`), close it before you hand back: call `device_close` with
+`shutdown: true` for every device you opened in that thread. Do this once the
+task is done, when you stop early, and after errors too. Leave a device open
+only when I explicitly ask to keep it running, and say so in your reply.
+Subagents and delegated threads follow the same rule for the devices they open.
