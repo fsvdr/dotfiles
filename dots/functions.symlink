@@ -70,15 +70,25 @@ gae() {
 }
 
 : '
-  Creates an encrypted disk image from the provided directory
+  Creates an encrypted (AES-256) disk image from the provided directory,
+  prompting for its password
 
-  @param  title  [$1] The title for the disk image
-  @param  src    [$2] Source directory to encrypt
-  @param  dst    [$3] Destination of the encrypted disk image
+  @param  src    [$1] Source directory to encrypt
+  @param  dst    [$2] Optional destination, defaults to <src>.dmg
+  @param  title  [$3] Optional volume name, defaults to the directory name
 '
 encrypt-disk-image() {
-  if hdiutil create $3 -encryption -volname $1 -srcfolder $2; then
-    echo -ne "\n  🔐  Successfully encrypted $1\n"
+  local src="${1%/}"
+  local dst="${2:-$src.dmg}"
+  local title="${3:-${src##*/}}"
+
+  if [[ -z "$src" || ! -d "$src" ]]; then
+    echo "usage: encrypt-disk-image <directory> [destination.dmg] [volume name]" >&2
+    return 1
+  fi
+
+  if diskutil image create from --encrypt --volumeName "$title" "$src" "$dst"; then
+    echo -ne "\n  🔐  Successfully encrypted $title into $dst\n"
   fi
 }
 
