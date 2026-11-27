@@ -21,6 +21,6 @@ dotfiles-symlink() {
     fi
     dst="${dst//+//}"
     mkdir -p "$(dirname "$dst")"
-    ln -sfv "$src" "$dst" 2>/dev/null >&2
+    ln -sfnv "$src" "$dst" 2>/dev/null >&2
   done
 }
